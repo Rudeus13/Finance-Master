@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fm-black: #0a0a0a;
+  --color-fm-surface: #111111;
+  --color-fm-border: #222222;
+  --color-fm-border-light: #2a2a2a;
+  --color-fm-white: #ffffff;
+  --color-fm-muted: #888888;
+  --color-fm-gold: #c9a227;
+  --color-fm-gold-light: #e8bc3a;
+  --color-fm-green: #16a34a;
+  --color-fm-green-dim: #0f7a38;
+
+  --font-sans: "Inter", "system-ui", sans-serif;
+  --font-display: "Cal Sans", "Inter", sans-serif;
+}
+
+/* Base resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: var(--font-sans);
+}
+
+/* Vercel-style grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Prose styles for lesson content */
+.lesson-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #222222;
+}
+
+.lesson-prose h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #e8bc3a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lesson-prose p {
+  color: #cccccc;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.lesson-prose ul {
+  list-style: none;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lesson-prose ul li {
+  color: #cccccc;
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.lesson-prose ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #c9a227;
+}
+
+.lesson-prose .callout {
+  background: #161616;
+  border: 1px solid #222222;
+  border-left: 3px solid #c9a227;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.lesson-prose .callout p {
+  margin: 0;
+  color: #aaaaaa;
+  font-size: 0.92rem;
+}
+
+.lesson-prose .fun-fact {
+  background: rgba(201, 162, 39, 0.06);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.lesson-prose .fun-fact p {
+  margin: 0;
+  color: #c9a227;
+  font-size: 0.9rem;
+}
+
+.lesson-prose .example-box {
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.lesson-prose .example-box h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 0.5rem;
+}
+
+.lesson-prose .example-box p {
+  margin: 0;
+  color: #bbbbbb;
+  font-size: 0.9rem;
+}

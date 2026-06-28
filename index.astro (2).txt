@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Finance Tools — Calculators">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <div class="mb-12">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#555] mb-3">Finance Tools</p>
+      <h1 class="text-4xl font-bold text-white mb-4">Calculators</h1>
+      <p class="text-[#666]">Free tools to put your financial knowledge into practice.</p>
+    </div>
+
+    <!-- COMPOUND INTEREST CALCULATOR -->
+    <div id="compound" class="p-6 rounded-xl border border-[#1a1a1a] bg-[#0d0d0d] mb-6">
+      <h2 class="text-lg font-semibold text-white mb-1">Compound Interest Calculator</h2>
+      <p class="text-xs text-[#555] mb-6">See how your money grows over time.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-xs text-[#555] mb-1.5">Principal Amount (₹)</label>
+          <input id="ci-principal" type="number" value="10000" class="w-full bg-[#111] border border-[#222] text-white text-sm px-3 py-2 rounded-lg focus:outline-none focus:border-[#c9a227]" />
+        </div>
+        <div>
+          <label class="block text-xs text-[#555] mb-1.5">Annual Interest Rate (%)</label>
+          <input id="ci-rate" type="number" value="12" class="w-full bg-[#111] border border-[#222] text-white text-sm px-3 py-2 rounded-lg focus:outline-none focus:border-[#c9a227]" />
+        </div>
+        <div>
+          <label class="block text-xs text-[#555] mb-1.5">Time (years)</label>
+          <input id="ci-years" type="number" value="10" class="w-full bg-[#111] border border-[#222] text-white text-sm px-3 py-2 rounded-lg focus:outline-none focus:border-[#c9a227]" />
+        </div>
+        <div>
+          <label class="block text-xs text-[#555] mb-1.5">Compounds Per Year</label>
+          <select id="ci-freq" class="w-full bg-[#111] border border-[#222] text-white text-sm px-3 py-2 rounded-lg focus:outline-none focus:border-[#c9a227]">
+            <option value="1">Annually</option>
+            <option value="4">Quarterly</option>
+            <option value="12" selected>Monthly</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="calcCompound()" class="px-4 py-2 bg-white text-black text-sm font-semibold rounded-lg hover:bg-[#e8e8e8] transition-colors">Calculate</button>
+
+      <div id="ci-result" class="mt-6 hidden p-4 rounded-lg bg-[#111] border border-[#222]">
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <p class="text-xs text-[#555] mb-1">Principal</p>
+            <p id="ci-res-principal" class="text-lg font-bold text-white"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#555] mb-1">Interest Earned</p>
+            <p id="ci-res-interest" class="text-lg font-bold text-[#c9a227]"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#555] mb-1">Final Amount</p>
+            <p id="ci-res-total" class="text-lg font-bold text-[#16a34a]"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUDGET PLANNER -->
+    <div id="budget" class="p-6 rounded-xl border border-[#1a1a1a] bg-[#0d0d0d] mb-6">
+      <h2 class="text-lg font-semibold text-white mb-1">50/30/20 Budget Planner</h2>
+      <p class="text-xs text-[#555] mb-6">Split your monthly income using the most popular budgeting rule.</p>
+
+      <div class="mb-4">
+        <label class="block text-xs text-[#555] mb-1.5">Monthly Income After Tax (₹)</label>
+        <input id="budget-income" type="number" value="50000" oninput="calcBudget()" class="w-full bg-[#111] border border-[#222] text-white text-sm px-3 py-2 rounded-lg focus:outline-none focus:border-[#c9a227]" />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+        <div class="p-4 rounded-lg border border-[#222] bg-[#111] text-center">
+          <p class="text-xs text-[#555] mb-1">50% — Needs</p>
+          <p id="b-needs" class="text-xl font-bold text-white">₹25,000</p>
+          <p class="text-xs text-[#444] mt-1">Rent, food, bills</p>
+        </div>
+        <div class="p-4 rounded-lg border border-[#c9a227]/20 bg-[#c9a227]/5 text-center">
+          <p class="text-xs text-[#c9a227] mb-1">30% — Wants</p>
+          <p id="b-wants" class="text-xl font-bold text-[#c9a227]">₹15,000</p>
+          <p class="text-xs text-[#444] mt-1">Dining, hobbies, fun</p>
+        </div>
+        <div class="p-4 rounded-lg border border-[#16a34a]/20 bg-[#16a34a]/5 text-center">
+          <p class="text-xs text-[#16a34a] mb-1">20% — Savings</p>
+          <p id="b-savings" class="text-xl font-bold text-[#16a34a]">₹10,000</p>
+          <p class="text-xs text-[#444] mt-1">Investments, emergency</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<script>
+function calcCompound() {
+  const p = parseFloat((document.getElementById('ci-principal') as HTMLInputElement).value);
+  const r = parseFloat((document.getElementById('ci-rate') as HTMLInputElement).value) / 100;
+  const t = parseFloat((document.getElementById('ci-years') as HTMLInputElement).value);
+  const n = parseFloat((document.getElementById('ci-freq') as HTMLSelectElement).value);
+
+  const total = p * Math.pow(1 + r / n, n * t);
+  const interest = total - p;
+  const fmt = (v: number) => '₹' + Math.round(v).toLocaleString('en-IN');
+
+  (document.getElementById('ci-res-principal') as HTMLElement).textContent = fmt(p);
+  (document.getElementById('ci-res-interest') as HTMLElement).textContent = fmt(interest);
+  (document.getElementById('ci-res-total') as HTMLElement).textContent = fmt(total);
+  (document.getElementById('ci-result') as HTMLElement).classList.remove('hidden');
+}
+
+function calcBudget() {
+  const income = parseFloat((document.getElementById('budget-income') as HTMLInputElement).value) || 0;
+  const fmt = (v: number) => '₹' + Math.round(v).toLocaleString('en-IN');
+  (document.getElementById('b-needs') as HTMLElement).textContent = fmt(income * 0.5);
+  (document.getElementById('b-wants') as HTMLElement).textContent = fmt(income * 0.3);
+  (document.getElementById('b-savings') as HTMLElement).textContent = fmt(income * 0.2);
+}
+</script>

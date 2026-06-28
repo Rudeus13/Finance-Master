@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const terms = [
+  { term: "Barter", category: "Basics", def: "The direct exchange of goods or services without using money." },
+  { term: "Commodity Money", category: "Basics", def: "Items with intrinsic value used as money (e.g., gold, salt, cattle)." },
+  { term: "Fiat Money", category: "Basics", def: "Currency declared legal tender by a government, not backed by a physical commodity." },
+  { term: "Inflation", category: "Basics", def: "The rate at which the general level of prices rises, reducing purchasing power." },
+  { term: "Hyperinflation", category: "Basics", def: "Extremely rapid or out-of-control inflation, often above 50% per month." },
+  { term: "Interest", category: "Basics", def: "The cost of borrowing money, or the reward for saving/investing it." },
+  { term: "Compound Interest", category: "Investing", def: "Interest earned on both the original principal and previously earned interest. Called the eighth wonder of the world." },
+  { term: "Principal", category: "Investing", def: "The original sum of money invested or borrowed, before interest." },
+  { term: "Asset", category: "Investing", def: "Anything you own that has economic value — cash, property, stocks." },
+  { term: "Liability", category: "Investing", def: "A financial obligation or debt you owe to someone else." },
+  { term: "Net Worth", category: "Basics", def: "Total assets minus total liabilities. A snapshot of your financial health." },
+  { term: "Budget", category: "Budgeting", def: "A plan for how you will earn and spend money over a set period." },
+  { term: "50/30/20 Rule", category: "Budgeting", def: "A budgeting guideline: 50% of income to needs, 30% to wants, 20% to savings." },
+  { term: "Emergency Fund", category: "Saving", def: "3–6 months of living expenses saved in an accessible account for unexpected events." },
+  { term: "Liquidity", category: "Basics", def: "How quickly and easily an asset can be converted to cash without losing value." },
+  { term: "Stock", category: "Investing", def: "A share of ownership in a company. Buying stock makes you a partial owner." },
+  { term: "Bond", category: "Investing", def: "A loan you give to a government or company in exchange for regular interest payments." },
+  { term: "Mutual Fund", category: "Investing", def: "A pool of money from many investors used to buy a diversified portfolio of securities." },
+  { term: "Index Fund", category: "Investing", def: "A fund that tracks a market index (like Nifty 50) — low cost, passive investing." },
+  { term: "ETF", category: "Investing", def: "Exchange-Traded Fund — like a mutual fund but traded on a stock exchange like a stock." },
+  { term: "Dividend", category: "Investing", def: "A portion of a company's profits paid to shareholders, usually quarterly." },
+  { term: "UPI", category: "Digital", def: "Unified Payments Interface — India's real-time digital payment system." },
+  { term: "Cryptocurrency", category: "Digital", def: "A decentralized digital currency secured by cryptography. E.g., Bitcoin, Ethereum." },
+  { term: "RBI", category: "Basics", def: "Reserve Bank of India — India's central bank that controls monetary policy and prints currency." },
+  { term: "GDP", category: "Macro", def: "Gross Domestic Product — the total value of all goods and services produced in a country." },
+  { term: "Credit Score", category: "Debt", def: "A number (300–900 in India) that represents your creditworthiness based on your borrowing history." },
+  { term: "EMI", category: "Debt", def: "Equated Monthly Instalment — a fixed monthly payment for a loan, covering both principal and interest." },
+  { term: "Demonetisation", category: "Basics", def: "The act of stripping a currency unit of its status as legal tender. India did this in 2016." },
+];
+
+const categories = [...new Set(terms.map(t => t.category))];
+---
+
+<BaseLayout title="Finance Glossary — Key Terms Explained">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <div class="mb-10">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#555] mb-3">Reference</p>
+      <h1 class="text-4xl font-bold text-white mb-4">Finance Glossary</h1>
+      <p class="text-[#666]">{terms.length} terms explained in plain English. No jargon.</p>
+    </div>
+
+    <!-- Search -->
+    <div class="relative mb-8">
+      <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#444]" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input
+        id="gloss-search"
+        type="text"
+        placeholder="Search terms..."
+        oninput="filterGlossary()"
+        class="w-full bg-[#0d0d0d] border border-[#1a1a1a] text-white text-sm pl-10 pr-4 py-2.5 rounded-lg focus:outline-none focus:border-[#333] placeholder-[#333]"
+      />
+    </div>
+
+    <!-- Category filters -->
+    <div class="flex flex-wrap gap-2 mb-8" id="cat-filters">
+      <button onclick="filterCat('all')" class="cat-btn active px-3 py-1 rounded-full text-xs border border-[#c9a227] text-[#c9a227] bg-[#c9a227]/10 transition-colors" data-cat="all">All</button>
+      {categories.map(cat => (
+        <button onclick={`filterCat('${cat}')`} class="cat-btn px-3 py-1 rounded-full text-xs border border-[#222] text-[#555] hover:border-[#333] hover:text-[#888] transition-colors" data-cat={cat}>{cat}</button>
+      ))}
+    </div>
+
+    <!-- Terms list -->
+    <div id="glossary-list" class="space-y-px">
+      {terms.map(t => (
+        <div class="glossary-item flex items-start gap-4 p-4 rounded-lg hover:bg-[#0d0d0d] transition-colors border border-transparent hover:border-[#1a1a1a]" data-term={t.term.toLowerCase()} data-cat={t.category}>
+          <div class="shrink-0 mt-0.5">
+            <span class="text-xs px-1.5 py-0.5 rounded bg-[#111] border border-[#1a1a1a] text-[#444] font-mono">{t.category}</span>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-0.5">{t.term}</p>
+            <p class="text-xs text-[#555] leading-relaxed">{t.def}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty state -->
+    <div id="gloss-empty" class="hidden py-16 text-center">
+      <p class="text-[#333] text-sm">No terms match your search.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  let activeCat = 'all';
+
+  function filterGlossary() {
+    const q = (document.getElementById('gloss-search') as HTMLInputElement).value.toLowerCase();
+    const items = document.querySelectorAll('.glossary-item') as NodeListOf<HTMLElement>;
+    let visible = 0;
+    items.forEach(item => {
+      const termMatch = item.dataset.term?.includes(q);
+      const catMatch = activeCat === 'all' || item.dataset.cat === activeCat;
+      const show = termMatch && catMatch;
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    (document.getElementById('gloss-empty') as HTMLElement).style.display = visible === 0 ? '' : 'none';
+  }
+
+  function filterCat(cat: string) {
+    activeCat = cat;
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      const b = btn as HTMLElement;
+      const isActive = b.dataset.cat === cat;
+      b.className = isActive
+        ? 'cat-btn active px-3 py-1 rounded-full text-xs border border-[#c9a227] text-[#c9a227] bg-[#c9a227]/10 transition-colors'
+        : 'cat-btn px-3 py-1 rounded-full text-xs border border-[#222] text-[#555] hover:border-[#333] hover:text-[#888] transition-colors';
+    });
+    filterGlossary();
+  }
+
+  (window as any).filterGlossary = filterGlossary;
+  (window as any).filterCat = filterCat;
+</script>

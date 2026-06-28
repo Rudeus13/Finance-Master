@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="About — Finance Master">
+  <div class="max-w-2xl mx-auto px-6 py-16">
+    <div class="mb-12">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#555] mb-3">About</p>
+      <h1 class="text-4xl font-bold text-white mb-6">Finance education shouldn't be a privilege.</h1>
+      <p class="text-[#666] text-lg leading-relaxed">Finance Master exists because most people finish school without ever being taught how money actually works — yet every single decision in adult life has a financial dimension.</p>
+    </div>
+
+    <div class="space-y-8 text-[#777] leading-relaxed">
+      <p>We teach finance from zero. Not "here are some investment tips" — but the actual foundations: what money is, why it has value, how economies work, and then building up chapter by chapter to investing, tax, and wealth building.</p>
+
+      <p>No jargon. No prerequisites. No sign-up required. Just open a chapter and read.</p>
+
+      <div class="border-l-2 border-[#c9a227] pl-5 py-1">
+        <p class="text-white font-medium">"The best investment you can make is in yourself. The more you learn, the more you earn."</p>
+        <p class="text-xs text-[#444] mt-2">— Warren Buffett</p>
+      </div>
+
+      <p>Finance Master is a growing project. New chapters are added regularly. If you have a topic you'd like covered, <a href="/contact" class="text-[#c9a227] hover:underline">send us a message</a>.</p>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-[#111]">
+      <a href="/learn/chapter-1/sub-a" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-semibold rounded-lg hover:bg-[#e8e8e8] transition-colors">
+        Start learning
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</BaseLayout>
