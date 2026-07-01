@@ -1,0 +1,50 @@
+# Finance Master - robots.txt
+# This file tells search engines which pages to crawl and which to ignore
+
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*page=
+Disallow: /cgi-bin/
+Disallow: /includes/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.sql$
+Crawl-delay: 1
+Request-rate: 30/60
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://financemaster.com/sitemap.xml
+Sitemap: https://financemaster.com/sitemap-mobile.xml
+
+# Cache parameters
+Cache-Control: public, max-age=86400
