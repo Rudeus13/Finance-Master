@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Finance Master — Learn finance from zero to professional. Free chapters, tools, glossary and more."/>
+<meta name="keywords" content="finance education, learn finance, personal finance India, budgeting, investing, money management"/>
+<meta name="author" content="Finance Master"/>
+<!-- AdSense placeholder — replace with your publisher ID -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<title>Finance Master — Learn Finance From Scratch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--surface:#111111;--surface2:#161616;
+  --border:#1e1e1e;--border2:#2a2a2a;
+  --white:#ffffff;--muted:#888888;--muted2:#555555;
+  --gold:#c9a227;--gold2:#e8bc3a;
+  --green:#16a34a;--green2:#0f7a38;
+  --radius:10px;--radius2:14px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+button{cursor:pointer;font-family:inherit}
+
+/* ── GRID BG ── */
+.grid-bg{
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:56px;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+}
+.nav-logo{display:flex;align-items:center;gap:8px}
+.nav-logo-icon{width:26px;height:26px;border-radius:6px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;color:#000}
+.nav-logo-text{font-weight:700;font-size:.95rem;letter-spacing:-.3px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:6px 12px;font-size:.84rem;color:var(--muted);border-radius:6px;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--white);background:var(--surface)}
+.nav-cta{background:var(--white)!important;color:#000!important;font-weight:600!important;padding:6px 14px!important;border-radius:7px!important}
+.nav-cta:hover{background:#e5e5e5!important}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;padding:4px}
+.hamburger span{width:20px;height:1.5px;background:var(--muted);border-radius:2px;display:block;transition:all .2s}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:var(--black);border-bottom:1px solid var(--border);padding:16px 5vw;flex-direction:column;gap:4px;z-index:99}
+.mobile-menu a{padding:10px 12px;font-size:.9rem;color:var(--muted);border-radius:6px}
+.mobile-menu a:hover{background:var(--surface);color:var(--white)}
+.mobile-menu.open{display:flex}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:56px;min-height:100vh}
+.page.active{display:block}
+
+/* ── HERO ── */
+.hero{
+  min-height:calc(100vh - 56px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 5vw 40px;
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,162,39,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--border2);background:var(--surface);
+  padding:5px 12px;border-radius:100px;font-size:.76rem;color:var(--muted);
+  margin-bottom:28px;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:1.05;margin-bottom:20px;letter-spacing:-.02em}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:520px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.btn-white{background:var(--white);color:#000;padding:10px 22px;border-radius:8px;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:6px;transition:background .15s,transform .12s;border:none}
+.btn-white:hover{background:#e5e5e5;transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--border2);color:var(--muted);padding:10px 22px;border-radius:8px;font-weight:500;font-size:.9rem;transition:border-color .15s,color .15s;background:none}
+.btn-ghost:hover{border-color:var(--border2);color:var(--white);background:var(--surface)}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--border)}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--white)}
+.stat-label{font-size:.75rem;color:var(--muted2);margin-top:2px}
+
+/* ── AD SLOT ── */
+.ad-slot{
+  width:100%;padding:12px;background:var(--surface);
+  border:1px dashed var(--border2);border-radius:var(--radius);
+  text-align:center;font-size:.72rem;color:var(--muted2);
+  margin:24px 0;min-height:90px;display:flex;align-items:center;justify-content:center;
+}
+
+/* ── SECTION COMMONS ── */
+.section{padding:80px 5vw}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted2);margin-bottom:8px}
+.section-h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:12px}
+.section-h2 span{color:var(--gold)}
+.section-lead{font-size:1rem;color:var(--muted);max-width:560px;margin-bottom:40px;line-height:1.7}
+.divider{height:1px;background:var(--border);margin:0 5vw}
+
+/* ── CHAPTER CARDS ── */
+.chapters-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.ch-card{
+  border:1px solid var(--border);background:var(--surface);
+  border-radius:var(--radius2);padding:20px;
+  transition:border-color .2s,background .2s,transform .15s;
+  cursor:pointer;
+}
+.ch-card:hover{border-color:var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.ch-card.live:hover{border-color:rgba(201,162,39,.35)}
+.ch-num{font-size:2.5rem;font-weight:900;color:var(--border2);line-height:1;margin-bottom:12px;transition:color .2s}
+.ch-card:hover .ch-num{color:#2a2a2a}
+.ch-badge-live{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(22,163,74,.1);color:var(--green);border:1px solid rgba(22,163,74,.2);padding:2px 8px;border-radius:100px}
+.ch-badge-soon{font-size:.68rem;color:var(--muted2)}
+.ch-title{font-size:.95rem;font-weight:700;color:var(--white);margin:8px 0 4px}
+.ch-desc{font-size:.82rem;color:var(--muted2);line-height:1.5}
+.ch-arrow{font-size:.8rem;color:var(--gold);margin-top:12px;opacity:0;transition:opacity .2s}
+.ch-card.live:hover .ch-arrow{opacity:1}
+
+/* ── LEARN PAGE ── */
+.learn-hero{padding:60px 5vw 40px;max-width:800px}
+.learn-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:12px}
+.learn-list{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.learn-item{
+  border:1px solid var(--border);background:var(--surface);
+  border-radius:var(--radius2);padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  transition:border-color .2s;
+}
+.learn-item.live{cursor:pointer}
+.learn-item.live:hover{border-color:var(--border2)}
+.learn-item-left{flex:1}
+.learn-item-meta{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.learn-ch-label{font-size:.72rem;font-weight:700;color:var(--muted2);font-family:monospace}
+.learn-title{font-size:1rem;font-weight:700;color:var(--white)}
+.learn-desc{font-size:.83rem;color:var(--muted2);margin-top:4px}
+.learn-subs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.sub-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--border);padding:4px 10px;border-radius:6px;
+  font-size:.75rem;color:var(--muted2);transition:border-color .15s,color .15s;cursor:pointer;
+}
+.sub-pill:hover{border-color:rgba(201,162,39,.4);color:var(--white)}
+.sub-pill-letter{width:16px;height:16px;border-radius:3px;background:var(--surface2);font-size:.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.learn-start-btn{
+  padding:7px 16px;background:var(--white);color:#000;
+  border-radius:7px;font-size:.82rem;font-weight:700;border:none;
+  white-space:nowrap;flex-shrink:0;transition:background .15s;
+}
+.learn-start-btn:hover{background:#e5e5e5}
+.dimmed{opacity:.45;pointer-events:none}
+
+/* ── LESSON PAGE ── */
+.lesson-wrap{max-width:1100px;margin:0 auto;padding:32px 5vw;display:flex;gap:40px;align-items:flex-start}
+.lesson-sidebar{width:220px;flex-shrink:0;position:sticky;top:72px}
+.sidebar-chapter-label{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-bottom:4px}
+.sidebar-chapter-title{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:16px}
+.sidebar-nav{display:flex;flex-direction:column;gap:4px}
+.sidebar-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:8px;font-size:.82rem;
+  color:var(--muted);cursor:pointer;transition:background .15s,color .15s;
+  border:1px solid transparent;
+}
+.sidebar-item:hover{background:var(--surface);color:var(--white)}
+.sidebar-item.active{background:var(--surface2);border-color:var(--border2);color:var(--white)}
+.sidebar-letter{
+  width:20px;height:20px;border-radius:4px;
+  background:var(--surface);font-size:.68rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.sidebar-item.active .sidebar-letter{background:var(--gold);color:#000}
+.sidebar-progress{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.progress-label{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted2);margin-bottom:6px}
+.progress-bar{height:3px;background:var(--surface2);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;width:25%;background:var(--gold);border-radius:100px}
+.lesson-main{flex:1;min-width:0}
+.lesson-breadcrumb{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--muted2);margin-bottom:20px}
+.lesson-breadcrumb span{cursor:pointer;transition:color .15s}
+.lesson-breadcrumb span:hover{color:var(--white)}
+.lesson-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.lesson-h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.1;margin-bottom:12px}
+.lesson-intro{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:28px;max-width:600px}
+.lesson-divider{height:1px;background:var(--border);margin-bottom:32px}
+
+/* LESSON PROSE */
+.prose h2{font-size:1.35rem;font-weight:700;color:var(--white);margin:2rem 0 .75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.prose h3{font-size:1.05rem;font-weight:600;color:var(--gold2);margin:1.4rem 0 .5rem}
+.prose p{color:#ccc;line-height:1.8;margin-bottom:.9rem}
+.prose ul{list-style:none;margin-bottom:1rem;display:flex;flex-direction:column;gap:.4rem}
+.prose ul li{color:#ccc;padding-left:1.2rem;position:relative;line-height:1.6;font-size:.95rem}
+.prose ul li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.prose strong{color:var(--white);font-weight:600}
+.prose em{color:#aaa;font-style:italic}
+.callout{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:14px 16px;margin:20px 0}
+.callout p{margin:0;color:#aaa;font-size:.88rem}
+.fun-fact{background:rgba(201,162,39,.06);border:1px solid rgba(201,162,39,.18);border-radius:8px;padding:14px 16px;margin:20px 0}
+.fun-fact p{margin:0;color:var(--gold);font-size:.88rem}
+.example-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin:20px 0}
+.example-box h4{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);margin-bottom:6px}
+.example-box p{margin:0;color:#bbb;font-size:.88rem}
+.key-takeaway{background:rgba(201,162,39,.05);border:1px solid rgba(201,162,39,.18);border-radius:10px;padding:18px;margin:28px 0}
+.key-takeaway-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.key-takeaway p{margin:0;color:#ccc;font-size:.9rem;line-height:1.7}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.lesson-nav-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:600;
+  border:1px solid var(--border2);color:var(--muted);background:none;
+  transition:color .15s,border-color .15s,background .15s;cursor:pointer;
+}
+.lesson-nav-btn:hover{color:var(--white);background:var(--surface)}
+.lesson-nav-btn.primary{background:var(--white);color:#000;border-color:var(--white)}
+.lesson-nav-btn.primary:hover{background:#e5e5e5}
+
+/* ── TOOLS PAGE ── */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:24px}
+.tool-card h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.tool-card p.tool-desc{font-size:.82rem;color:var(--muted2);margin-bottom:20px}
+.tool-input-group{margin-bottom:12px}
+.tool-input-group label{display:block;font-size:.75rem;color:var(--muted2);margin-bottom:5px}
+.tool-input{
+  width:100%;background:var(--surface2);border:1px solid var(--border2);
+  color:var(--white);font-size:.88rem;padding:8px 12px;border-radius:7px;
+  outline:none;transition:border-color .15s;font-family:inherit;
+}
+.tool-input:focus{border-color:var(--gold)}
+.tool-select{
+  width:100%;background:var(--surface2);border:1px solid var(--border2);
+  color:var(--white);font-size:.88rem;padding:8px 12px;border-radius:7px;
+  outline:none;font-family:inherit;
+}
+.tool-btn{
+  width:100%;padding:9px;background:var(--white);color:#000;
+  border:none;border-radius:7px;font-weight:700;font-size:.88rem;
+  margin-top:4px;transition:background .15s;cursor:pointer;
+}
+.tool-btn:hover{background:#e5e5e5}
+.tool-result{display:none;margin-top:16px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px}
+.tool-result.show{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.result-num{font-size:1.1rem;font-weight:800}
+.result-label{font-size:.7rem;color:var(--muted2);margin-top:2px}
+.budget-result{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.budget-box{padding:10px;border-radius:8px;text-align:center}
+.budget-box.needs{background:rgba(255,255,255,.04);border:1px solid var(--border)}
+.budget-box.wants{background:rgba(201,162,39,.06);border:1px solid rgba(201,162,39,.2)}
+.budget-box.savings{background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.2)}
+.budget-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.budget-amt{font-size:1rem;font-weight:800}
+
+/* ── GLOSSARY ── */
+.gloss-search-wrap{position:relative;margin-bottom:20px}
+.gloss-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted2)}
+.gloss-search{
+  width:100%;background:var(--surface);border:1px solid var(--border);
+  color:var(--white);font-size:.88rem;padding:10px 12px 10px 38px;
+  border-radius:8px;outline:none;font-family:inherit;
+}
+.gloss-search:focus{border-color:var(--border2)}
+.gloss-search::placeholder{color:var(--muted2)}
+.gloss-cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.gloss-cat{
+  padding:4px 12px;border-radius:100px;font-size:.75rem;
+  border:1px solid var(--border);color:var(--muted2);background:none;
+  cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.gloss-cat.active{border-color:var(--gold);color:var(--gold);background:rgba(201,162,39,.08)}
+.gloss-list{display:flex;flex-direction:column;gap:2px}
+.gloss-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:12px 14px;border-radius:8px;
+  border:1px solid transparent;transition:background .15s,border-color .15s;
+}
+.gloss-item:hover{background:var(--surface);border-color:var(--border)}
+.gloss-tag{
+  font-size:.68rem;padding:2px 7px;border-radius:4px;
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--muted2);white-space:nowrap;font-family:monospace;margin-top:2px;flex-shrink:0;
+}
+.gloss-term{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:3px}
+.gloss-def{font-size:.8rem;color:var(--muted2);line-height:1.5}
+#gloss-empty{display:none;padding:40px;text-align:center;color:var(--muted2);font-size:.88rem}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.blog-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius2);overflow:hidden;
+  transition:border-color .2s,transform .15s;cursor:pointer;
+}
+.blog-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.blog-thumb{height:100px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;background:linear-gradient(135deg,var(--surface2),var(--surface))}
+.blog-body{padding:16px}
+.blog-cat{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.blog-title{font-size:.95rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:6px}
+.blog-excerpt{font-size:.8rem;color:var(--muted2);line-height:1.5;margin-bottom:12px}
+.blog-meta{font-size:.74rem;color:var(--muted2);display:flex;gap:10px;border-top:1px solid var(--border);padding-top:10px}
+
+/* ── ABOUT ── */
+.about-content{max-width:680px}
+.about-content p{color:#bbb;line-height:1.8;margin-bottom:1rem;font-size:.98rem}
+.about-quote{border-left:2px solid var(--gold);padding-left:18px;margin:28px 0}
+.about-quote p{color:var(--white);font-style:italic;margin:0}
+.about-quote cite{font-size:.78rem;color:var(--muted2);display:block;margin-top:6px}
+.pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:36px}
+.pillar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:20px;border-left:3px solid var(--gold)}
+.pillar-icon{font-size:1.6rem;margin-bottom:8px}
+.pillar-title{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.pillar-desc{font-size:.8rem;color:var(--muted2);line-height:1.5}
+
+/* ── CONTACT ── */
+.contact-form{max-width:560px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.75rem;color:var(--muted2);margin-bottom:5px}
+.form-input,.form-select,.form-textarea{
+  width:100%;background:var(--surface);border:1px solid var(--border);
+  color:var(--white);font-size:.88rem;padding:10px 12px;border-radius:8px;
+  outline:none;font-family:inherit;transition:border-color .15s;
+}
+.form-input:focus,.form-textarea:focus{border-color:var(--border2)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--muted2)}
+.form-select option{background:var(--surface)}
+.form-textarea{resize:vertical;min-height:110px}
+.form-submit{
+  width:100%;padding:11px;background:var(--white);color:#000;
+  border:none;border-radius:8px;font-weight:700;font-size:.92rem;
+  cursor:pointer;transition:background .15s;margin-top:4px;font-family:inherit;
+}
+.form-submit:hover{background:#e5e5e5}
+.form-success{display:none;text-align:center;padding:24px;background:rgba(22,163,74,.08);border:1px solid rgba(22,163,74,.2);border-radius:8px;color:var(--green);margin-top:12px}
+
+/* ── RESOURCES ── */
+.resources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.resource-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:20px;transition:border-color .2s}
+.resource-card:hover{border-color:var(--border2)}
+.resource-icon{font-size:1.8rem;margin-bottom:10px}
+.resource-type{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.resource-title{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.resource-desc{font-size:.8rem;color:var(--muted2);line-height:1.5;margin-bottom:12px}
+.resource-link{font-size:.8rem;color:var(--green);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px;background:none;border:none;font-family:inherit}
+.resource-link:hover{color:var(--gold)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:48px 5vw 28px;margin-top:48px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
+.footer-brand p{font-size:.82rem;color:var(--muted2);margin-top:8px;max-width:240px;line-height:1.6}
+.footer-col h4{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col li a,.footer-col li span{font-size:.84rem;color:#444;cursor:pointer;transition:color .15s}
+.footer-col li a:hover,.footer-col li span:hover{color:var(--white)}
+.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:.76rem;color:#333}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 5vw;text-align:center}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;margin-bottom:12px}
+.cta-band h2 span{color:var(--gold)}
+.cta-band p{color:var(--muted);margin-bottom:28px;font-size:1rem}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .lesson-wrap{flex-direction:column}
+  .lesson-sidebar{width:100%;position:static}
+  .form-row{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+  .hero-stats{gap:28px}
+  .footer-inner{flex-direction:column;gap:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">F</div>
+    <span class="nav-logo-text">Finance Master</span>
+  </div>
+  <div class="nav-links">
+    <a href="#" onclick="showPage('learn')">Learn</a>
+    <a href="#" onclick="showPage('tools')">Tools</a>
+    <a href="#" onclick="showPage('resources')">Resources</a>
+    <a href="#" onclick="showPage('glossary')">Glossary</a>
+    <a href="#" onclick="showPage('blog')">Blog</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('contact')" class="nav-cta">Contact</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('learn');toggleMenu()">Learn</a>
+  <a href="#" onclick="showPage('tools');toggleMenu()">Tools</a>
+  <a href="#" onclick="showPage('resources');toggleMenu()">Resources</a>
+  <a href="#" onclick="showPage('glossary');toggleMenu()">Glossary</a>
+  <a href="#" onclick="showPage('blog');toggleMenu()">Blog</a>
+  <a href="#" onclick="showPage('about');toggleMenu()">About</a>
+  <a href="#" onclick="showPage('contact');toggleMenu()">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+  <section class="hero grid-bg">
+    <div class="hero-glow"></div>
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Chapter 1 is live — start learning free
+    </div>
+    <h1>Finance.<br><span>From scratch.</span></h1>
+    <p class="hero-sub">No jargon. No prerequisites. Clear, structured lessons that take you from zero knowledge to confident money management.</p>
+    <div class="hero-btns">
+      <button class="btn-white" onclick="showPage('lesson-1a')">Start Chapter 1 →</button>
+      <button class="btn-ghost" onclick="showPage('learn')">View all chapters</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">7+</div><div class="stat-label">Chapters</div></div>
+      <div><div class="stat-num">28+</div><div class="stat-label">Sub-chapters</div></div>
+      <div><div class="stat-num">Free</div><div class="stat-label">Forever</div></div>
+      <div><div class="stat-num">0</div><div class="stat-label">Prerequisites</div></div>
+    </div>
+  </section>
+
+  <!-- Ad slot -->
+  <div style="padding:0 5vw">
+    <div class="ad-slot">
+      <!-- AdSense Ad Unit — replace with your ad code -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-tag">The Curriculum</div>
+      <h2 class="section-h2">Zero to financially<br><span>confident</span> — step by step.</h2>
+      <p class="section-lead">Work through each chapter in order, or jump to what you need. Every lesson is self-contained and jargon-free.</p>
+      <div class="chapters-grid">
+        <div class="ch-card live" onclick="showPage('lesson-1a')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">01</div><span class="ch-badge-live">Live</span></div>
+          <div class="ch-title">What is Money?</div>
+          <div class="ch-desc">History of money, barter, coins, paper currency, UPI & crypto.</div>
+          <div class="ch-arrow">Start lesson →</div>
+        </div>
+        <div class="ch-card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">02</div><span class="ch-badge-soon">Soon</span></div><div class="ch-title">Budgeting</div><div class="ch-desc">50/30/20 rule, zero-based budgeting, tracking expenses.</div></div>
+        <div class="ch-card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">03</div><span class="ch-badge-soon">Soon</span></div><div class="ch-title">Saving</div><div class="ch-desc">Emergency funds, savings accounts, goal-based saving.</div></div>
+        <div class="ch-card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">04</div><span class="ch-badge-soon">Soon</span></div><div class="ch-title">Debt</div><div class="ch-desc">Good vs bad debt, credit cards, loans, payoff strategies.</div></div>
+        <div class="ch-card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">05</div><span class="ch-badge-soon">Soon</span></div><div class="ch-title">Investing</div><div class="ch-desc">Stocks, bonds, mutual funds, index funds — start with ₹500.</div></div>
+        <div class="ch-card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">06</div><span class="ch-badge-soon">Soon</span></div><div class="ch-title">Tax</div><div class="ch-desc">Income tax basics, deductions, filing returns simplified.</div></div>
+        <div class="ch-card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="ch-num">07</div><span class="ch-badge-soon">Soon</span></div><div class="ch-title">Wealth Building</div><div class="ch-desc">Real estate, passive income, retirement planning.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Your financial education<br>starts <span>today.</span></h2>
+    <p>No sign-up. No cost. Just open a chapter and start reading.</p>
+    <button class="btn-white" onclick="showPage('lesson-1a')">Begin Chapter 1 — What is Money? →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     LEARN PAGE
+══════════════════════════════════════════ -->
+<div id="page-learn" class="page">
+  <div class="learn-hero section-inner" style="padding-top:48px">
+    <div class="section-tag">Finance Master</div>
+    <h1>All Chapters</h1>
+    <p style="color:var(--muted);margin-top:8px">A structured path from zero to professional. Work at your own pace.</p>
+  </div>
+  <div style="padding:0 5vw 16px">
+    <div class="ad-slot" style="max-width:1100px;margin:0 auto">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+  <div style="padding:0 5vw 60px">
+    <div class="learn-list">
+      <div class="learn-item live" onclick="showPage('lesson-1a')">
+        <div class="learn-item-left">
+          <div class="learn-item-meta"><span class="learn-ch-label">CH 01</span><span class="ch-badge-live">Live</span></div>
+          <div class="learn-title">What is Money?</div>
+          <div class="learn-desc">History of money, barter systems, coins, paper currency, digital payments and crypto.</div>
+          <div class="learn-subs">
+            <div class="sub-pill" onclick="event.stopPropagation();showPage('lesson-1a')"><span class="sub-pill-letter">A</span>History of Money</div>
+            <div class="sub-pill" onclick="event.stopPropagation();showPage('lesson-1b')"><span class="sub-pill-letter">B</span>What is a Transaction?</div>
+            <div class="sub-pill" style="opacity:.3;pointer-events:none"><span class="sub-pill-letter" style="color:var(--muted2)">C</span>Coming Soon</div>
+            <div class="sub-pill" style="opacity:.3;pointer-events:none"><span class="sub-pill-letter" style="color:var(--muted2)">D</span>Coming Soon</div>
+          </div>
+        </div>
+        <button class="learn-start-btn">Start →</button>
+      </div>
+      <div class="learn-item dimmed"><div class="learn-item-left"><div class="learn-item-meta"><span class="learn-ch-label">CH 02</span><span class="ch-badge-soon">Soon</span></div><div class="learn-title">Budgeting</div><div class="learn-desc">50/30/20 rule, tracking income and expenses, zero-based budgeting, tools.</div></div></div>
+      <div class="learn-item dimmed"><div class="learn-item-left"><div class="learn-item-meta"><span class="learn-ch-label">CH 03</span><span class="ch-badge-soon">Soon</span></div><div class="learn-title">Saving</div><div class="learn-desc">Emergency funds, savings accounts, high-yield accounts, goal-based saving.</div></div></div>
+      <div class="learn-item dimmed"><div class="learn-item-left"><div class="learn-item-meta"><span class="learn-ch-label">CH 04</span><span class="ch-badge-soon">Soon</span></div><div class="learn-title">Debt</div><div class="learn-desc">Good vs bad debt, credit cards, interest rates, avalanche and snowball methods.</div></div></div>
+      <div class="learn-item dimmed"><div class="learn-item-left"><div class="learn-item-meta"><span class="learn-ch-label">CH 05</span><span class="ch-badge-soon">Soon</span></div><div class="learn-title">Investing</div><div class="learn-desc">Stocks, bonds, mutual funds, index funds — how to start with any amount.</div></div></div>
+      <div class="learn-item dimmed"><div class="learn-item-left"><div class="learn-item-meta"><span class="learn-ch-label">CH 06</span><span class="ch-badge-soon">Soon</span></div><div class="learn-title">Tax</div><div class="learn-desc">Income tax basics, deductions, filing returns, saving on tax legally.</div></div></div>
+      <div class="learn-item dimmed"><div class="learn-item-left"><div class="learn-item-meta"><span class="learn-ch-label">CH 07</span><span class="ch-badge-soon">Soon</span></div><div class="learn-title">Wealth Building</div><div class="learn-desc">Real estate, passive income, retirement planning, compounding over decades.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     LESSON 1A
+══════════════════════════════════════════ -->
+<div id="page-lesson-1a" class="page">
+  <div class="lesson-wrap">
+    <aside class="lesson-sidebar">
+      <div class="sidebar-chapter-label">Chapter 1</div>
+      <div class="sidebar-chapter-title">What is Money?</div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-item active"><span class="sidebar-letter">A</span>History of Money</div>
+        <div class="sidebar-item" onclick="showPage('lesson-1b')"><span class="sidebar-letter">B</span>What is a Transaction?</div>
+        <div class="sidebar-item" style="opacity:.35;pointer-events:none"><span class="sidebar-letter" style="color:var(--muted2)">C</span>Coming Soon</div>
+        <div class="sidebar-item" style="opacity:.35;pointer-events:none"><span class="sidebar-letter" style="color:var(--muted2)">D</span>Coming Soon</div>
+      </nav>
+      <div class="sidebar-progress">
+        <div class="progress-label"><span>Progress</span><span>1 / 4</span></div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+      <!-- Sidebar Ad -->
+      <div class="ad-slot" style="margin-top:20px;min-height:200px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </aside>
+    <article class="lesson-main">
+      <div class="lesson-breadcrumb">
+        <span onclick="showPage('home')">Home</span>
+        <span style="color:var(--border2)">/</span>
+        <span onclick="showPage('learn')">Learn</span>
+        <span style="color:var(--border2)">/</span>
+        <span onclick="showPage('learn')">Chapter 1</span>
+        <span style="color:var(--border2)">/</span>
+        <span style="color:var(--muted)">History of Money</span>
+      </div>
+      <div class="lesson-eyebrow">Chapter 1 · A</div>
+      <h1 class="lesson-h1">History of Money</h1>
+      <p class="lesson-intro">Money evolved over thousands of years — from bartering goods to tapping a phone. Understanding this history is your first financial superpower.</p>
+      <div class="lesson-divider"></div>
+
+      <!-- In-article Ad -->
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-layout="in-article" data-ad-format="fluid"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="prose">
+        <div class="callout"><p>🗺️ <strong>Quick Summary:</strong> Barter → Shells, Salt & Stones → Metal Coins → Paper → UPI & Crypto. Understanding this evolution is your financial superpower.</p></div>
+
+        <h2>The Barter System — Where It All Began</h2>
+        <p>Before money existed, people traded directly — wheat for cloth, fish for tools. This system is called <strong>barter</strong>.</p>
+        <p>The fundamental problem? You needed a <strong>"Double Coincidence of Wants"</strong> — both parties had to want exactly what the other person had, at the same time. If you had wheat but needed shoes, you had to find someone who had shoes AND wanted wheat. Inefficient, frustrating, and slow.</p>
+        <div class="callout"><p>💡 Imagine being a farmer with 100kg of rice, but you need a haircut. You'd have to find a barber who also wants rice. That's the double coincidence problem — and it's exactly why money was invented.</p></div>
+
+        <h2>Commodity Money — Shells, Salt & Cattle</h2>
+        <p>Societies solved the barter problem by agreeing on a common item everyone would accept. These became the first forms of money:</p>
+        <ul>
+          <li>Cowrie shells (used across Africa, South Asia, and China)</li>
+          <li>Salt (especially in Africa and the Roman Empire)</li>
+          <li>Cattle and livestock (one cow = X amount of grain)</li>
+          <li>Barley (used in ancient Mesopotamia)</li>
+        </ul>
+        <div class="fun-fact"><p>⚡ <strong>Fun Fact:</strong> The word "Salary" comes from "Sal" — the Latin word for salt. Roman soldiers were partially paid in salt because it was so valuable. That's where "worth their salt" comes from.</p></div>
+
+        <h2>Metal Coins — The Lydian Revolution (~600 BC)</h2>
+        <p>Before coins, merchants traded using raw lumps of gold and silver called <em>bullion</em>. Every transaction required carrying scales to weigh the metal and a touchstone to verify its purity. Imagine doing this at a busy marketplace every single day.</p>
+        <h3>The Breakthrough</h3>
+        <p>Around 600 BC, rulers in the ancient Kingdom of Lydia (modern-day Turkey) had a genius idea: stamp standardized lumps of metal with an official royal seal — the famous Lydian Lion.</p>
+        <ul>
+          <li>The material: <em>Electrum</em> — a naturally occurring alloy of gold and silver from local riverbeds</li>
+          <li>The stamp: A government guarantee of exact weight and purity</li>
+          <li>The result: Merchants could finally <strong>count coins</strong> instead of weighing metal — and trade exploded</li>
+        </ul>
+        <h3>India's Punch-Marked Coins (6th Century BC)</h3>
+        <p>Independently from the West, India developed its own coin system during the Mahajanapada era — the period of 16 powerful kingdoms across the Indo-Gangetic plain.</p>
+        <ul>
+          <li>Unlike Western coins cast in round molds, Indian coins were <strong>hammered from sheet silver</strong> into uneven, rectangular shapes</li>
+          <li>Stamped with symbols: the sun, six-armed wheels, animals, and religious motifs</li>
+          <li>The most famous: the silver <strong>Karshapana</strong> and the elongated <strong>Shatamana</strong></li>
+        </ul>
+        <div class="example-box"><h4>Why This Mattered</h4><p>The royal stamp meant trust. You didn't need to know the person selling you grain — you trusted the coin's stamp. Humanity's first experiment with institutional trust — and it worked.</p></div>
+
+        <h2>Paper Money — China's Revolutionary Idea (~7th Century)</h2>
+        <p>China's Tang Dynasty had a problem: the economy was growing so fast they were literally running out of copper coins. Merchants traveling long distances had to carry massive, heavy strings of coins — making them easy robbery targets.</p>
+        <h3>The "Flying Cash" Innovation</h3>
+        <p>The solution was elegant: merchants left heavy coins with trusted agents in the capital, and received a <strong>paper receipt</strong> in return. At their destination, they redeemed that receipt for hard cash.</p>
+        <p>This was nicknamed <strong>Feiqian</strong> — "Flying Cash" — because value could travel across provinces without any physical metal moving.</p>
+        <ul>
+          <li>It preserved precious metals for military and high-value use</li>
+          <li>Merchants could carry real goods instead of coin chests</li>
+          <li>It proved that economies could run on <strong>institutional trust</strong> alone</li>
+        </ul>
+        <div class="callout"><p>The Tang Dynasty's private receipts evolved into the Song Dynasty's officially regulated paper currency — <em>Jiaozi</em> — the world's first state-backed paper money. The blueprint for every banknote in your wallet today.</p></div>
+
+        <h2>Modern Money</h2>
+        <h3>Fiat Money</h3>
+        <p>Today's money isn't backed by gold or silver — it's backed by <strong>government trust</strong>. The Indian Rupee has value because the Government of India says it does, and because 1.4 billion people agree. This is called <em>fiat money</em>.</p>
+        <h3>Digital Money</h3>
+        <p>India leads the world in digital payments. UPI (Unified Payments Interface) processes billions of transactions daily — you move money with a single tap. Cards, net banking, and wallets have made physical cash optional for most transactions.</p>
+        <h3>Cryptocurrency</h3>
+        <p>Bitcoin and others represent a new form of <strong>decentralized digital money</strong> — not controlled by any government or bank. Whether they are the future of money or a speculative asset is still actively debated. You'll study this in Chapter 5.</p>
+
+        <h2>Real World: When Money Goes Wrong</h2>
+        <div class="example-box"><h4>📉 Zimbabwe Hyperinflation (2008)</h4><p>Zimbabwe printed so much money that a loaf of bread cost 35 million Zimbabwean dollars. They had to introduce 100 Trillion Dollar notes. This shows exactly why controlling money supply matters — print too much and the value collapses.</p></div>
+        <div class="example-box"><h4>🇮🇳 India's Demonetisation (2016)</h4><p>When India removed ₹500 and ₹1000 notes overnight, 86% of all currency in circulation became invalid. This demonstrated that money is ultimately just a social agreement — the moment the agreement changes, the value shifts.</p></div>
+        <div class="fun-fact"><p>⚡ <strong>India Fact:</strong> The RBI can print banknotes, but only the Government of India can mint coins. Every Indian banknote has text printed in 17 languages.</p></div>
+
+        <div class="key-takeaway">
+          <div class="key-takeaway-label">Key Takeaway</div>
+          <p>Money is not a physical object — it's a <strong>shared agreement</strong>. From cowrie shells to crypto, what makes something "money" is simply that everyone agrees it has value. Understanding this gives you a fundamentally different perspective on every financial decision you'll ever make.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Ad -->
+      <div class="ad-slot" style="margin-top:32px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="lesson-nav">
+        <button class="lesson-nav-btn" onclick="showPage('learn')">← Back to chapters</button>
+        <button class="lesson-nav-btn primary" onclick="showPage('lesson-1b')">Next: What is a Transaction? →</button>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     LESSON 1B
+══════════════════════════════════════════ -->
+<div id="page-lesson-1b" class="page">
+  <div class="lesson-wrap">
+    <aside class="lesson-sidebar">
+      <div class="sidebar-chapter-label">Chapter 1</div>
+      <div class="sidebar-chapter-title">What is Money?</div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-item" onclick="showPage('lesson-1a')"><span class="sidebar-letter">A</span>History of Money</div>
+        <div class="sidebar-item active"><span class="sidebar-letter">B</span>What is a Transaction?</div>
+        <div class="sidebar-item" style="opacity:.35;pointer-events:none"><span class="sidebar-letter" style="color:var(--muted2)">C</span>Coming Soon</div>
+        <div class="sidebar-item" style="opacity:.35;pointer-events:none"><span class="sidebar-letter" style="color:var(--muted2)">D</span>Coming Soon</div>
+      </nav>
+      <div class="sidebar-progress">
+        <div class="progress-label"><span>Progress</span><span>2 / 4</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+      </div>
+      <!-- Sidebar Ad -->
+      <div class="ad-slot" style="margin-top:20px;min-height:200px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </aside>
+    <article class="lesson-main">
+      <div class="lesson-breadcrumb">
+        <span onclick="showPage('home')">Home</span>
+        <span style="color:var(--border2)">/</span>
+        <span onclick="showPage('learn')">Learn</span>
+        <span style="color:var(--border2)">/</span>
+        <span onclick="showPage('learn')">Chapter 1</span>
+        <span style="color:var(--border2)">/</span>
+        <span style="color:var(--muted)">What is a Transaction?</span>
+      </div>
+      <div class="lesson-eyebrow">Chapter 1 · B</div>
+      <h1 class="lesson-h1">What is a Transaction?</h1>
+      <p class="lesson-intro">Every time you trade money for something — a snack, a service, a gift — that's a transaction. Master this idea and you'll understand how all of finance actually works.</p>
+      <div class="lesson-divider"></div>
+
+      <!-- In-article Ad -->
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-layout="in-article" data-ad-format="fluid"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="prose">
+        <div class="callout"><p>🛒 <strong>Quick Summary:</strong> A transaction is simply giving money and getting something in return. It can happen in person, by card, by app, or even just by saving. Every financial decision you make is a transaction.</p></div>
+
+        <h2>What Exactly is a Transaction?</h2>
+        <p>A <strong>transaction</strong> is just a fancy word for when you trade money for something. Let's make it crystal clear with an example:</p>
+        <div class="example-box">
+          <h4>The Ice Cream Example</h4>
+          <p>You give the ice cream seller $5. The ice cream seller gives you a delicious cone. That's a transaction — you traded money for ice cream. Simple as that.</p>
+        </div>
+        <p>Every single day, millions of transactions happen around you — at the grocery store, at a restaurant, when your parents pay a bill, or when you save coins in a jar. They're all transactions.</p>
+
+        <h2>Different Types of Transactions</h2>
+
+        <h3>1. Buying Something (In-Person)</h3>
+        <p>This is when you go to a store, pick what you want, and pay money for it. You hand over your money, and you get what you bought.</p>
+        <div class="example-box">
+          <h4>Example</h4>
+          <p>You go to the toy store, find a cool action figure for $12, and buy it. You gave $12 — you got an action figure. Transaction complete!</p>
+        </div>
+
+        <h3>2. Getting Money (Receiving)</h3>
+        <p>Sometimes people <strong>give you</strong> money! This happens when you do chores, on your birthday, or when you return something to a store.</p>
+        <div class="example-box">
+          <h4>Example</h4>
+          <p>Your grandma gives you $20 as a birthday gift. You received money — that's a transaction too, just going the other way.</p>
+        </div>
+
+        <h3>3. Using a Card or App (Cashless Transaction)</h3>
+        <p>In today's world, you don't always need coins or paper money. You can use special cards or phone apps to buy things. The money comes from your bank account and is sent <strong>digitally</strong> — instantly and invisibly.</p>
+        <div class="example-box">
+          <h4>Example</h4>
+          <p>Mom uses her debit card at the grocery store. No cash changes hands — the money is automatically transferred from her bank account to the store's account in seconds.</p>
+        </div>
+        <div class="fun-fact"><p>⚡ <strong>Fun Fact:</strong> India's UPI system processes over 10 billion transactions every single month — more real-time digital payments than any other country in the world. Every phone tap is a transaction!</p></div>
+
+        <h3>4. Saving Money (For Later)</h3>
+        <p>A transaction doesn't always mean spending money right away. Putting money aside in a piggy bank or savings account is also a financial move — you're choosing <em>not</em> to transact now so you can transact bigger later.</p>
+        <div class="example-box">
+          <h4>Example</h4>
+          <p>You save $2 every week for 10 weeks. After 10 weeks, you have $20 — enough to buy the video game you wanted. Patient saving made that transaction possible.</p>
+        </div>
+
+        <h2>Steps in a Simple Transaction</h2>
+        <p>Every transaction — no matter how big or small — follows the same basic steps:</p>
+        <ul>
+          <li><strong>Step 1 — Find something you want:</strong> Look at what's available and decide if you want it.</li>
+          <li><strong>Step 2 — Check the price:</strong> Find out how much money it costs.</li>
+          <li><strong>Step 3 — Decide if you have enough:</strong> Do you have enough money right now? Or do you need to save more?</li>
+          <li><strong>Step 4 — Pay for it:</strong> Give the money (coins, bills, card, or app) to the seller.</li>
+          <li><strong>Step 5 — Get your item:</strong> Take what you bought — and get <strong>change</strong> back if you paid more than the price.</li>
+        </ul>
+
+        <div class="callout"><p>💡 <strong>What is Change?</strong> If something costs $7 and you pay with a $10 note, you get $3 back. That $3 is called <em>change</em> — the extra money returned when you overpay.</p></div>
+
+        <h2>Important Things to Know About Transactions</h2>
+        <ul>
+          <li>Money lets us buy things we <strong>need</strong> (food, clothes) and things we <strong>want</strong> (toys, games).</li>
+          <li>Every transaction involves someone <em>giving</em> money and someone <em>receiving</em> a product or service.</li>
+          <li>Always check the price <strong>before</strong> you buy something — no surprises!</li>
+          <li>It's completely okay to save instead of spending. Saving is a smart financial decision.</li>
+          <li>Once you spend money, you can't use it again. Think carefully before buying!</li>
+          <li>Different people prefer different ways to pay — cash, cards, apps. All are valid.</li>
+        </ul>
+
+        <h2>Try This! 🎮</h2>
+        <div class="example-box">
+          <h4>The $20 Money Game</h4>
+          <p>Imagine you have $20 to spend. Walk around your house (or browse an online store) and make a list of things you want. Add up the prices. Can you buy everything on your list? What would you choose first? This is how real budgeting feels — and it's a skill that will serve you your whole life.</p>
+        </div>
+
+        <div class="key-takeaway">
+          <div class="key-takeaway-label">Key Takeaway</div>
+          <p>A transaction is the basic unit of all finance. Every time value changes hands — money for goods, money for services, money saved for later — a transaction is happening. Understanding this simple idea is the foundation of everything in finance that comes next.</p>
+        </div>
+
+        <h2>Key Words to Remember</h2>
+        <ul>
+          <li><strong>Transaction:</strong> When someone gives money and gets something in return.</li>
+          <li><strong>Price:</strong> How much money something costs.</li>
+          <li><strong>Change:</strong> The extra money you get back if you paid more than the price.</li>
+          <li><strong>Save:</strong> To keep money instead of spending it, so you can use it later.</li>
+          <li><strong>Pay:</strong> To give money for something you want to buy.</li>
+        </ul>
+      </div>
+
+      <!-- Bottom Ad -->
+      <div class="ad-slot" style="margin-top:32px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="lesson-nav">
+        <button class="lesson-nav-btn" onclick="showPage('lesson-1a')">← History of Money</button>
+        <button class="lesson-nav-btn primary" onclick="showPage('learn')">Next: Sub-chapter C (Coming Soon)</button>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TOOLS PAGE
+══════════════════════════════════════════ -->
+<div id="page-tools" class="page">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag">Finance Tools</div>
+      <h2 class="section-h2">Calculators that <span>actually help.</span></h2>
+      <p class="section-lead">Free tools to put your financial knowledge into practice.</p>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+      <div class="tools-grid">
+        <!-- Compound Interest -->
+        <div class="tool-card">
+          <h3>📈 Compound Interest</h3>
+          <p class="tool-desc">See exactly how your money grows over time.</p>
+          <div class="tool-input-group"><label>Principal Amount (₹)</label><input class="tool-input" id="ci-p" type="number" value="10000"/></div>
+          <div class="tool-input-group"><label>Annual Interest Rate (%)</label><input class="tool-input" id="ci-r" type="number" value="12"/></div>
+          <div class="tool-input-group"><label>Time (Years)</label><input class="tool-input" id="ci-t" type="number" value="10"/></div>
+          <div class="tool-input-group"><label>Compounds Per Year</label><select class="tool-select" id="ci-n"><option value="1">Annually</option><option value="4">Quarterly</option><option value="12" selected>Monthly</option></select></div>
+          <button class="tool-btn" onclick="calcCI()">Calculate</button>
+          <div class="tool-result" id="ci-result">
+            <div class="result-grid">
+              <div><div class="result-num" id="ci-principal"></div><div class="result-label">Principal</div></div>
+              <div><div class="result-num" style="color:var(--gold)" id="ci-interest"></div><div class="result-label">Interest Earned</div></div>
+              <div><div class="result-num" style="color:var(--green)" id="ci-total"></div><div class="result-label">Final Amount</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Budget Planner -->
+        <div class="tool-card">
+          <h3>📋 50/30/20 Budget</h3>
+          <p class="tool-desc">Split your income using the most popular budgeting rule.</p>
+          <div class="tool-input-group"><label>Monthly Income After Tax (₹)</label><input class="tool-input" id="b-income" type="number" value="50000" oninput="calcBudget()"/></div>
+          <div class="budget-result">
+            <div class="budget-box needs"><div class="budget-label" style="color:var(--muted2)">50% Needs</div><div class="budget-amt" id="b-needs">₹25,000</div></div>
+            <div class="budget-box wants"><div class="budget-label" style="color:var(--gold)">30% Wants</div><div class="budget-amt" style="color:var(--gold)" id="b-wants">₹15,000</div></div>
+            <div class="budget-box savings"><div class="budget-label" style="color:var(--green)">20% Save</div><div class="budget-amt" style="color:var(--green)" id="b-savings">₹10,000</div></div>
+          </div>
+          <p style="font-size:.75rem;color:var(--muted2);margin-top:14px">Needs: rent, food, bills. Wants: dining, hobbies. Savings: investments, emergency fund.</p>
+        </div>
+        <!-- EMI Calculator -->
+        <div class="tool-card">
+          <h3>💳 EMI Calculator</h3>
+          <p class="tool-desc">Calculate your monthly loan instalment.</p>
+          <div class="tool-input-group"><label>Loan Amount (₹)</label><input class="tool-input" id="emi-p" type="number" value="500000"/></div>
+          <div class="tool-input-group"><label>Annual Interest Rate (%)</label><input class="tool-input" id="emi-r" type="number" value="10"/></div>
+          <div class="tool-input-group"><label>Loan Tenure (Years)</label><input class="tool-input" id="emi-t" type="number" value="5"/></div>
+          <button class="tool-btn" onclick="calcEMI()">Calculate EMI</button>
+          <div class="tool-result" id="emi-result">
+            <div class="result-grid">
+              <div><div class="result-num" id="emi-monthly"></div><div class="result-label">Monthly EMI</div></div>
+              <div><div class="result-num" style="color:var(--gold)" id="emi-interest"></div><div class="result-label">Total Interest</div></div>
+              <div><div class="result-num" id="emi-total"></div><div class="result-label">Total Payment</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     RESOURCES PAGE
+══════════════════════════════════════════ -->
+<div id="page-resources" class="page">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag">Free Resources</div>
+      <h2 class="section-h2">Tools to <span>Take Action</span></h2>
+      <p class="section-lead">Download, use, and keep these — free forever.</p>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+      <div class="resources-grid">
+        <div class="resource-card"><div class="resource-icon">📋</div><div class="resource-type">Template</div><div class="resource-title">Monthly Budget Spreadsheet</div><div class="resource-desc">Track income and expenses automatically. Pre-built formulas included.</div><button class="resource-link" onclick="showPage('contact')">Download Free →</button></div>
+        <div class="resource-card"><div class="resource-icon">🧮</div><div class="resource-type">Calculator</div><div class="resource-title">Compound Interest Calculator</div><div class="resource-desc">See exactly how your money grows over time with any rate.</div><button class="resource-link" onclick="showPage('tools')">Use Calculator →</button></div>
+        <div class="resource-card"><div class="resource-icon">📘</div><div class="resource-type">Guide</div><div class="resource-title">Beginner's Finance Glossary</div><div class="resource-desc">50+ finance terms explained in plain English — bookmark this one.</div><button class="resource-link" onclick="showPage('glossary')">Read Glossary →</button></div>
+        <div class="resource-card"><div class="resource-icon">📊</div><div class="resource-type">Checklist</div><div class="resource-title">Financial Health Checklist</div><div class="resource-desc">25 questions to find exactly where you stand financially right now.</div><button class="resource-link" onclick="showPage('contact')">Get Checklist →</button></div>
+        <div class="resource-card"><div class="resource-icon">🎯</div><div class="resource-type">Planner</div><div class="resource-title">Debt Payoff Planner</div><div class="resource-desc">Avalanche vs snowball — see which clears your debt fastest.</div><button class="resource-link" onclick="showPage('contact')">Download Planner →</button></div>
+        <div class="resource-card"><div class="resource-icon">📰</div><div class="resource-type">Newsletter</div><div class="resource-title">Weekly Finance Digest</div><div class="resource-desc">One email per week. One money tip, one term, one action item.</div><button class="resource-link" onclick="showPage('contact')">Subscribe Free →</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     GLOSSARY PAGE
+══════════════════════════════════════════ -->
+<div id="page-glossary" class="page">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag">Reference</div>
+      <h2 class="section-h2">Finance <span>Glossary</span></h2>
+      <p class="section-lead">28 terms explained in plain English. No jargon.</p>
+      <div class="gloss-search-wrap">
+        <svg class="gloss-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input class="gloss-search" id="glossSearch" type="text" placeholder="Search terms..." oninput="filterGloss()"/>
+      </div>
+      <div class="gloss-cats" id="glossCats"></div>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+      <div class="gloss-list" id="glossList"></div>
+      <div id="gloss-empty">No terms match your search.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     BLOG PAGE
+══════════════════════════════════════════ -->
+<div id="page-blog" class="page">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag">Blog</div>
+      <h2 class="section-h2">Finance, <span>explained.</span></h2>
+      <p class="section-lead">Short, useful articles. No fluff, no sponsored content.</p>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+      <div class="blog-grid">
+        <div class="blog-card"><div class="blog-thumb">📈</div><div class="blog-body"><div class="blog-cat">Investing</div><div class="blog-title">Compound Interest: The Eighth Wonder of the World</div><div class="blog-excerpt">Einstein allegedly called it the most powerful force in the universe. The math is undeniable — here's how it works.</div><div class="blog-meta"><span>June 20, 2026</span><span>·</span><span>5 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb">📊</div><div class="blog-body"><div class="blog-cat">Budgeting</div><div class="blog-title">The 50/30/20 Rule — Does It Work for Indians?</div><div class="blog-excerpt">The most popular budgeting framework in the world. But does it hold up with Indian incomes and family obligations?</div><div class="blog-meta"><span>June 14, 2026</span><span>·</span><span>6 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb">🚀</div><div class="blog-body"><div class="blog-cat">Investing</div><div class="blog-title">How to Start Investing With Just ₹500</div><div class="blog-excerpt">You don't need lakhs to start. A step-by-step guide to your very first investment in India.</div><div class="blog-meta"><span>June 7, 2026</span><span>·</span><span>4 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb">💳</div><div class="blog-body"><div class="blog-cat">Debt</div><div class="blog-title">Your CIBIL Score Explained</div><div class="blog-excerpt">A single number between 300 and 900 determines whether you get a loan. Here's exactly what goes into it.</div><div class="blog-meta"><span>May 30, 2026</span><span>·</span><span>7 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb">📱</div><div class="blog-body"><div class="blog-cat">Digital</div><div class="blog-title">How UPI Became the World's Largest Payment System</div><div class="blog-excerpt">India processes more real-time digital payments than any other country. Here's the remarkable story of how UPI did it.</div><div class="blog-meta"><span>May 22, 2026</span><span>·</span><span>5 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-thumb">🛡️</div><div class="blog-body"><div class="blog-cat">Saving</div><div class="blog-title">Emergency Fund: Why You Need 6 Months Saved</div><div class="blog-excerpt">Most Indians don't have an emergency fund. Most are one crisis away from debt. Here's how to build yours — starting today.</div><div class="blog-meta"><span>May 15, 2026</span><span>·</span><span>4 min read</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT PAGE
+══════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-tag">About</div>
+      <h2 class="section-h2">Finance education<br>shouldn't be a <span>privilege.</span></h2>
+      <div class="about-content">
+        <p>Finance Master exists because most people finish school without ever being taught how money actually works — yet every single decision in adult life has a financial dimension.</p>
+        <p>We teach finance from zero. Not "here are some investment tips" — but the actual foundations: what money is, why it has value, how economies work, and then building up chapter by chapter to investing, tax, and wealth building.</p>
+        <p>No jargon. No prerequisites. No sign-up required. Just open a chapter and read.</p>
+        <div class="about-quote">
+          <p>"The best investment you can make is in yourself. The more you learn, the more you earn."</p>
+          <cite>— Warren Buffett</cite>
+        </div>
+        <p>Finance Master is a growing project. New chapters are added regularly. If you have a topic you'd like covered, <span style="color:var(--gold);cursor:pointer" onclick="showPage('contact')">send us a message.</span></p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-icon">📐</div><div class="pillar-title">Structured Learning</div><div class="pillar-desc">From your first paycheck to your first investment — step by step, no gaps.</div></div>
+        <div class="pillar"><div class="pillar-icon">🌍</div><div class="pillar-title">Built for Everyone</div><div class="pillar-desc">Students, workers, parents, retirees — finance affects all of us equally.</div></div>
+        <div class="pillar"><div class="pillar-icon">⚡</div><div class="pillar-title">Practical, Not Theoretical</div><div class="pillar-desc">Every lesson ends with an action you can take today, not tomorrow.</div></div>
+      </div>
+      <div style="margin-top:36px">
+        <button class="btn-white" onclick="showPage('lesson-1a')">Start learning →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTACT PAGE
+══════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="section">
+    <div class="section-inner" style="max-width:640px">
+      <div class="section-tag">Contact</div>
+      <h2 class="section-h2">Get in <span>touch</span></h2>
+      <p class="section-lead">Topic requests, feedback, or just want to say hello — we read every message.</p>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input class="form-input" type="text" placeholder="Your name" id="c-name"/></div>
+          <div class="form-group"><label>Email</label><input class="form-input" type="email" placeholder="you@email.com" id="c-email"/></div>
+        </div>
+        <div class="form-group"><label>Topic</label>
+          <select class="form-select" id="c-topic">
+            <option>Chapter or content request</option>
+            <option>Feedback</option>
+            <option>Collaboration</option>
+            <option>Resource request</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea class="form-textarea" placeholder="Write your message..." id="c-msg"></textarea></div>
+        <button class="form-submit" onclick="submitContact()">Send Message</button>
+        <div class="form-success" id="contactSuccess">✓ Message sent! We'll get back to you soon.</div>
+      </div>
+
+      <!-- Privacy & Legal notes for AdSense compliance -->
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+        <p style="font-size:.78rem;color:var(--muted2);line-height:1.6">By using this site you agree to our <span style="color:var(--gold);cursor:pointer">Privacy Policy</span> and <span style="color:var(--gold);cursor:pointer">Terms of Use</span>. This site uses Google AdSense to display ads. Third-party vendors, including Google, use cookies to serve ads based on prior visits. You may opt out at <a href="https://www.google.com/settings/ads" target="_blank" style="color:var(--gold)">Google Ad Settings</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER (shown on all pages)
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo"><div class="nav-logo-icon">F</div><span class="nav-logo-text">Finance Master</span></div>
+      <p>Teaching finance from scratch — so everyone has the knowledge to build real wealth.</p>
+    </div>
+    <div class="footer-col"><h4>Learn</h4><ul><li><span onclick="showPage('learn')">All Chapters</span></li><li><span onclick="showPage('lesson-1a')">Chapter 1</span></li><li><span onclick="showPage('glossary')">Glossary</span></li></ul></div>
+    <div class="footer-col"><h4>Tools</h4><ul><li><span onclick="showPage('tools')">Calculators</span></li><li><span onclick="showPage('resources')">Resources</span></li><li><span onclick="showPage('blog')">Blog</span></li></ul></div>
+    <div class="footer-col"><h4>Site</h4><ul><li><span onclick="showPage('about')">About</span></li><li><span onclick="showPage('contact')">Contact</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Finance Master. All rights reserved.</p>
+    <p>Domain coming soon · Built for everyone</p>
+  </div>
+</footer>
+
+<script>
+// ── PAGE ROUTER ──
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target=document.getElementById('page-'+id);
+  if(target){target.classList.add('active');window.scrollTo(0,0);}
+}
+
+// ── MOBILE MENU ──
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+
+// ── TOOLS ──
+function fmt(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function calcCI(){
+  const p=+document.getElementById('ci-p').value;
+  const r=+document.getElementById('ci-r').value/100;
+  const t=+document.getElementById('ci-t').value;
+  const n=+document.getElementById('ci-n').value;
+  const total=p*Math.pow(1+r/n,n*t);
+  const interest=total-p;
+  document.getElementById('ci-principal').textContent=fmt(p);
+  document.getElementById('ci-interest').textContent=fmt(interest);
+  document.getElementById('ci-total').textContent=fmt(total);
+  document.getElementById('ci-result').classList.add('show');
+}
+function calcBudget(){
+  const i=+document.getElementById('b-income').value||0;
+  document.getElementById('b-needs').textContent=fmt(i*.5);
+  document.getElementById('b-wants').textContent=fmt(i*.3);
+  document.getElementById('b-savings').textContent=fmt(i*.2);
+}
+function calcEMI(){
+  const p=+document.getElementById('emi-p').value;
+  const r=+document.getElementById('emi-r').value/100/12;
+  const n=+document.getElementById('emi-t').value*12;
+  const emi=p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const total=emi*n;
+  const interest=total-p;
+  document.getElementById('emi-monthly').textContent=fmt(emi);
+  document.getElementById('emi-interest').textContent=fmt(interest);
+  document.getElementById('emi-total').textContent=fmt(total);
+  document.getElementById('emi-result').classList.add('show');
+}
+
+// ── GLOSSARY ──
+const glossTerms=[
+  {term:'Barter',cat:'Basics',def:'The direct exchange of goods or services without using money.'},
+  {term:'Commodity Money',cat:'Basics',def:'Items with intrinsic value used as money — gold, salt, cattle.'},
+  {term:'Fiat Money',cat:'Basics',def:"Currency declared legal tender by a government, not backed by a physical commodity."},
+  {term:'Inflation',cat:'Basics',def:'The rate at which the general level of prices rises, reducing purchasing power.'},
+  {term:'Hyperinflation',cat:'Basics',def:'Extremely rapid inflation, often above 50% per month. Think Zimbabwe 2008.'},
+  {term:'Interest',cat:'Basics',def:'The cost of borrowing money, or the reward for saving or investing it.'},
+  {term:'Net Worth',cat:'Basics',def:'Total assets minus total liabilities. A snapshot of your financial health.'},
+  {term:'Liquidity',cat:'Basics',def:'How quickly an asset can be converted to cash without losing value.'},
+  {term:'RBI',cat:'Basics',def:"Reserve Bank of India — India's central bank that controls monetary policy and prints currency."},
+  {term:'Compound Interest',cat:'Investing',def:'Interest earned on both the original principal and previously earned interest. The eighth wonder of the world.'},
+  {term:'Principal',cat:'Investing',def:'The original sum of money invested or borrowed, before interest.'},
+  {term:'Asset',cat:'Investing',def:'Anything you own that has economic value — cash, property, stocks.'},
+  {term:'Liability',cat:'Investing',def:'A financial obligation or debt you owe to someone else.'},
+  {term:'Stock',cat:'Investing',def:'A share of ownership in a company. Buying stock makes you a partial owner.'},
+  {term:'Bond',cat:'Investing',def:'A loan you give to a government or company in exchange for regular interest payments.'},
+  {term:'Mutual Fund',cat:'Investing',def:'A pool of money from many investors used to buy a diversified portfolio of securities.'},
+  {term:'Index Fund',cat:'Investing',def:'A fund that tracks a market index (like Nifty 50) — low cost, passive investing.'},
+  {term:'ETF',cat:'Investing',def:'Exchange-Traded Fund — like a mutual fund but traded on a stock exchange like a stock.'},
+  {term:'Dividend',cat:'Investing',def:"A portion of a company's profits paid to shareholders, usually quarterly."},
+  {term:'Budget',cat:'Budgeting',def:'A plan for how you will earn and spend money over a set period.'},
+  {term:'50/30/20 Rule',cat:'Budgeting',def:'A budgeting guideline: 50% of income to needs, 30% to wants, 20% to savings.'},
+  {term:'Emergency Fund',cat:'Saving',def:'3–6 months of living expenses saved in an accessible account for unexpected events.'},
+  {term:'Credit Score',cat:'Debt',def:'A number (300–900 in India) that represents your creditworthiness based on borrowing history.'},
+  {term:'EMI',cat:'Debt',def:'Equated Monthly Instalment — a fixed monthly payment for a loan, covering both principal and interest.'},
+  {term:'UPI',cat:'Digital',def:"Unified Payments Interface — India's real-time digital payment system."},
+  {term:'Cryptocurrency',cat:'Digital',def:'A decentralized digital currency secured by cryptography. E.g., Bitcoin, Ethereum.'},
+  {term:'GDP',cat:'Macro',def:'Gross Domestic Product — the total value of all goods and services produced in a country.'},
+  {term:'Demonetisation',cat:'Macro',def:'The act of stripping a currency unit of its legal tender status. India did this in 2016.'},
+];
+let activeCat='All';
+function buildGloss(){
+  const cats=['All',...new Set(glossTerms.map(t=>t.cat))];
+  const catsEl=document.getElementById('glossCats');
+  catsEl.innerHTML=cats.map(c=>`<button class="gloss-cat${c==='All'?' active':''}" onclick="setCat('${c}')">${c}</button>`).join('');
+  renderGloss();
+}
+function setCat(c){
+  activeCat=c;
+  document.querySelectorAll('.gloss-cat').forEach(b=>{
+    b.classList.toggle('active',b.textContent===c);
+  });
+  renderGloss();
+}
+function renderGloss(){
+  const q=document.getElementById('glossSearch').value.toLowerCase();
+  const list=document.getElementById('glossList');
+  const filtered=glossTerms.filter(t=>{
+    const matchCat=activeCat==='All'||t.cat===activeCat;
+    const matchQ=t.term.toLowerCase().includes(q)||t.def.toLowerCase().includes(q);
+    return matchCat&&matchQ;
+  });
+  list.innerHTML=filtered.map(t=>`
+    <div class="gloss-item">
+      <span class="gloss-tag">${t.cat}</span>
+      <div><div class="gloss-term">${t.term}</div><div class="gloss-def">${t.def}</div></div>
+    </div>`).join('');
+  document.getElementById('gloss-empty').style.display=filtered.length?'none':'block';
+}
+function filterGloss(){renderGloss()}
+buildGloss();
+
+// ── CONTACT ──
+function submitContact(){
+  const name=document.getElementById('c-name').value.trim();
+  const email=document.getElementById('c-email').value.trim();
+  const msg=document.getElementById('c-msg').value.trim();
+  if(!name||!email||!msg){alert('Please fill in all fields.');return;}
+  document.getElementById('contactSuccess').style.display='block';
+  document.getElementById('c-name').value='';
+  document.getElementById('c-email').value='';
+  document.getElementById('c-msg').value='';
+  setTimeout(()=>document.getElementById('contactSuccess').style.display='none',4000);
+}
+
+// Init budget
+calcBudget();
+</script>
+</body>
+</html>
