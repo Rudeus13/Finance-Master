@@ -1,0 +1,27 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="goldBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- White rounded bg (for contrast like image 2) -->
+  <rect width="512" height="512" fill="#ffffff" rx="90"/>
+  
+  <!-- Pie chart style - upward trend -->
+  <circle cx="256" cy="256" r="180" fill="url(#goldBlue)"/>
+  
+  <!-- Inner circle creating ring effect -->
+  <circle cx="256" cy="256" r="100" fill="#ffffff"/>
+  
+  <!-- Upward arrow accent -->
+  <g transform="translate(256, 256)">
+    <polygon points="0,-60 40,-20 30,80 -30,80 -40,-20" fill="url(#blueCyan)" opacity="0.9"/>
+  </g>
+</svg>
