@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Finance Master FAQ - Learn finance online, how to earn money online, best resources for financial education and more."/>
+<meta name="keywords" content="learn finance online, how to learn finance, earn money online, quick money, fast money, economics, financial education"/>
+<meta name="author" content="Finance Master"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="apple-touch-icon" href="favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4347664015203404" crossorigin="anonymous"></script>
+<title>FAQ — Finance Master | Learn Finance & Earn Money Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--surface:#111111;--surface2:#161616;
+  --border:#1e1e1e;--border2:#2a2a2a;
+  --white:#ffffff;--muted:#888888;--muted2:#555555;
+  --gold:#c9a227;--gold2:#e8bc3a;
+  --green:#16a34a;--green2:#0f7a38;
+  --radius:10px;--radius2:14px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+button{cursor:pointer;font-family:inherit}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:56px;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+}
+.nav-logo{display:flex;align-items:center;gap:8px}
+.nav-logo-icon{width:26px;height:26px;border-radius:6px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;color:#000}
+.nav-logo-text{font-weight:700;font-size:.95rem;letter-spacing:-.3px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:6px 12px;font-size:.84rem;color:var(--muted);border-radius:6px;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--white);background:var(--surface)}
+.nav-cta{background:var(--white)!important;color:#000!important;font-weight:600!important;padding:6px 14px!important;border-radius:7px!important}
+.nav-cta:hover{background:#e5e5e5!important}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;padding:4px}
+.hamburger span{width:20px;height:1.5px;background:var(--muted);border-radius:2px;display:block;transition:all .2s}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:var(--black);border-bottom:1px solid var(--border);padding:16px 5vw;flex-direction:column;gap:4px;z-index:99}
+.mobile-menu a{padding:10px 12px;font-size:.9rem;color:var(--muted);border-radius:6px}
+.mobile-menu a:hover{background:var(--surface);color:var(--white)}
+.mobile-menu.open{display:flex}
+
+/* ── HERO ── */
+.faq-hero{
+  min-height:calc(100vh - 56px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 5vw 40px;
+  position:relative;overflow:hidden;
+}
+.faq-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:900;line-height:1.05;margin-bottom:16px;letter-spacing:-.02em}
+.faq-hero h1 span{color:var(--gold)}
+.faq-hero-sub{font-size:clamp(.95rem,2vw,1.1rem);color:var(--muted);max-width:520px;margin:0 auto 32px;line-height:1.7}
+
+/* ── FAQ CONTAINER ── */
+.faq-wrapper{max-width:900px;margin:0 auto;padding:40px 5vw 80px}
+
+/* ── FAQ TABS ── */
+.faq-tabs{display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap;justify-content:center}
+.faq-tab-btn{
+  padding:10px 20px;border-radius:8px;font-size:.9rem;font-weight:600;
+  border:1px solid var(--border);color:var(--muted);background:none;
+  cursor:pointer;transition:all .2s;
+}
+.faq-tab-btn:hover{border-color:var(--gold);color:var(--white)}
+.faq-tab-btn.active{background:var(--white);color:#000;border-color:var(--white)}
+
+/* ── FAQ ITEMS ── */
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  border:1px solid var(--border);background:var(--surface);
+  border-radius:var(--radius2);overflow:hidden;
+  transition:border-color .2s,background .2s;
+}
+.faq-item.active{border-color:var(--gold);background:var(--surface2)}
+
+/* ── FAQ HEADER (Clickable) ── */
+.faq-header{
+  padding:20px 24px;cursor:pointer;display:flex;
+  align-items:center;justify-content:space-between;gap:16px;
+  transition:background .15s;
+}
+.faq-item:hover .faq-header{background:rgba(201,162,39,.05)}
+.faq-header-text{text-align:left;flex:1}
+.faq-question{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.faq-category{font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.faq-toggle{
+  font-size:1.4rem;color:var(--gold);transition:transform .3s;
+  display:flex;align-items:center;justify-content:center;width:24px;flex-shrink:0;
+}
+.faq-item.active .faq-toggle{transform:rotate(180deg)}
+
+/* ── FAQ ANSWER ── */
+.faq-answer{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+  background:rgba(201,162,39,.02);border-top:1px solid var(--border);
+}
+.faq-item.active .faq-answer{max-height:500px}
+.faq-answer-text{padding:24px;font-size:.9rem;color:var(--muted);line-height:1.8}
+.faq-answer-text strong{color:var(--white)}
+.faq-answer-text a{color:var(--gold);font-weight:600;text-decoration:underline}
+.faq-answer-text a:hover{color:var(--gold2)}
+
+/* ── AD SLOT ── */
+.ad-slot{
+  width:100%;padding:12px;background:var(--surface);
+  border:1px dashed var(--border2);border-radius:var(--radius);
+  text-align:center;font-size:.72rem;color:var(--muted2);
+  margin:40px 0;min-height:90px;display:flex;align-items:center;justify-content:center;
+}
+
+/* ── CTA SECTION ── */
+.faq-cta{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius2);padding:40px;text-align:center;margin-top:60px;
+}
+.faq-cta h3{font-size:1.2rem;margin-bottom:12px}
+.faq-cta p{color:var(--muted);margin-bottom:24px}
+.cta-btn{
+  background:var(--white);color:#000;padding:10px 24px;
+  border-radius:8px;font-weight:700;font-size:.9rem;border:none;
+  cursor:pointer;transition:background .15s;
+  display:inline-block;
+}
+.cta-btn:hover{background:#e5e5e5}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:40px 5vw}
+.footer-bottom{text-align:center;font-size:.8rem;color:var(--muted2);max-width:1100px;margin:0 auto}
+.footer-bottom a{color:var(--gold);text-decoration:underline}
+.footer-bottom a:hover{color:var(--gold2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .faq-tabs{gap:8px}
+  .faq-tab-btn{padding:8px 14px;font-size:.8rem}
+  .faq-header{padding:16px}
+  .faq-answer-text{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">F</div>
+    <span class="nav-logo-text">Finance Master</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#learn">Learn</a>
+    <a href="index.html#tools">Tools</a>
+    <a href="index.html#glossary">Glossary</a>
+    <a class="nav-cta" href="index.html">← Back</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="index.html#learn">Learn</a>
+  <a href="index.html#tools">Tools</a>
+  <a href="index.html#glossary">Glossary</a>
+  <a href="index.html">← Back</a>
+</div>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <h1>Frequently Asked <span>Questions</span></h1>
+  <p class="faq-hero-sub">Find answers about learning finance, earning money, and building wealth. We've compiled the most common questions we get.</p>
+</div>
+
+<div class="ad-slot">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4347664015203404" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- FAQ WRAPPER -->
+<div class="faq-wrapper">
+
+  <!-- TAB NAVIGATION -->
+  <div class="faq-tabs">
+    <button class="faq-tab-btn active" onclick="filterFAQ('all')">All Questions</button>
+    <button class="faq-tab-btn" onclick="filterFAQ('learning')">Learn Finance</button>
+    <button class="faq-tab-btn" onclick="filterFAQ('earning')">Earn Money</button>
+  </div>
+
+  <!-- FAQ LIST -->
+  <div class="faq-list" id="faqList">
+    
+    <!-- LEARNING SECTION -->
+    
+    <!-- Q1 -->
+    <div class="faq-item learning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Learning</div>
+          <div class="faq-question">How can I learn finance online for free?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          You can <strong>learn finance online free</strong> through multiple resources: our comprehensive chapters at Finance Master, YouTube tutorials, podcasts, and free e-books. Start with the basics through our Chapter 1 to understand how money works, then progress to budgeting, saving, and investing. Consistency is key — dedicate 30 minutes daily to learning.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="faq-item learning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Learning</div>
+          <div class="faq-question">What's the best way to learn finance from scratch?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          To <strong>learn finance</strong> effectively: (1) Start with fundamentals — understand money, inflation, and compound interest, (2) Learn budgeting to manage your income, (3) Build an emergency fund, (4) Study investing basics, (5) Practice with real money. Finance Master's structured chapters guide you through this exact progression. Most people see results within 3-6 months of consistent learning.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="faq-item learning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Learning</div>
+          <div class="faq-question">Where should I learn finance if I'm a beginner?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Where to learn finance:</strong> Start with accessible platforms like Finance Master (specifically designed for Indians), Khan Academy, Investopedia, and personal finance blogs. Books like "The Intelligent Investor" and "Rich Dad Poor Dad" are classics. YouTube channels offer free video tutorials. Choose resources that explain concepts in your language and context — this accelerates learning significantly.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="faq-item learning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Learning</div>
+          <div class="faq-question">Why should I learn finance and economics?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Why learn finance?</strong> Financial literacy directly impacts your quality of life. It helps you: avoid debt traps, make smarter investing decisions, understand inflation's impact on savings, plan retirement, and build generational wealth. Most financial problems stem from lack of knowledge. Learning finance is one of the highest ROI investments you can make — the knowledge pays dividends for life.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="faq-item learning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Learning</div>
+          <div class="faq-question">How do I learn economics online?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Learn economics online</strong> through: university-level courses on Coursera and edX, YouTube educational channels (MIT OpenCourseWare), economics blogs, and financial news sites. Start with microeconomics (personal finance) before macroeconomics (national economy). Understanding supply-demand, inflation, and interest rates — taught in our chapters — is the foundation of modern economics.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="faq-item learning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Learning</div>
+          <div class="faq-question">What are the best books to learn economics and finance?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Best books to learn economics:</strong> "Freakonomics" (makes econ fun), "The Intelligent Investor" (investing classics), "Poor Economics" (real-world economics), "Sapiens" (economic history), "A Brief History of Financial Euphoria" (market cycles). Start with engaging books before diving into textbooks. Combine reading with practice — read for 30 minutes, then apply concepts to your own finances.
+        </div>
+      </div>
+    </div>
+
+    <!-- EARNING SECTION -->
+
+    <!-- Q7 -->
+    <div class="faq-item earning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Earning</div>
+          <div class="faq-question">How can I earn money online?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Money earn online:</strong> Freelancing (writing, coding, design), content creation (YouTube, blogs), online courses, affiliate marketing, dropshipping, gig economy work (Uber, Ola), digital products, and tutoring. Start by identifying skills you have or can quickly learn. Most successful online earners combine 2-3 income streams. Consistency and quality matter more than speed.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="faq-item earning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Earning</div>
+          <div class="faq-question">Is it possible to earn quick money legitimately?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>Quick money earn:</strong> Yes, but realistically. Gig work (delivery, task apps) pays within days. Freelancing pays within 1-2 weeks. However, "get rich quick" schemes are scams. Real <strong>fast money earn</strong> requires: existing skills, immediate action, and realistic expectations. Expect ₹500-5000 in your first week from gig work, scaling to ₹30,000+ monthly with specialization.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="faq-item earning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Earning</div>
+          <div class="faq-question">What are the easiest ways to earn money online?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Easiest <strong>online money earn</strong> paths: (1) Freelance your existing skills (writing, design, coding), (2) Content creation (medium commitment, high scaling), (3) Gig apps (immediate but lower pay), (4) Affiliate marketing (passive after setup), (5) Tutoring (if you're knowledgeable). Pick based on your strengths and available time. Most people earn ₹10,000-50,000/month within 3 months of focused effort.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="faq-item earning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Earning</div>
+          <div class="faq-question">How much money can I earn online realistically?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          <strong>How to money earn:</strong> Your online income depends on: skill level, time invested, and strategy chosen. Gig work: ₹500-2000/day. Freelancing: ₹20,000-100,000+/month. Content creation: 6-12 months to ₹50,000/month. Affiliate marketing: ₹5,000-500,000+/month (highly variable). The key: start with gig work to build capital and confidence, then scale to higher-paying models like freelancing or digital products.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="faq-item earning" onclick="toggleFAQ(this)">
+      <div class="faq-header">
+        <div class="faq-header-text">
+          <div class="faq-category">Earning</div>
+          <div class="faq-question">What should I avoid when trying to earn money online?</div>
+        </div>
+        <div class="faq-toggle">⌄</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">
+          Avoid these traps: (1) Paying money upfront for "opportunities," (2) Get-rich-quick schemes, (3) Multi-level marketing (MLM), (4) Unverified cryptocurrency investment promises, (5) Unrealistic income claims, (6) Neglecting your day job too early. Real online earning requires patience and skill-building. If something promises ₹1,00,000/month with no effort, it's a scam. Always verify and start small before going all-in.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AD SLOT -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4347664015203404" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- CTA SECTION -->
+  <div class="faq-cta">
+    <h3>Ready to Master Your Finances?</h3>
+    <p>Start with our structured chapters designed for Indians. Learn finance from scratch to professional level.</p>
+    <a href="index.html#learn" class="cta-btn">Start Learning →</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Finance Master. All rights reserved. | <a href="index.html">Home</a> • <a href="index.html#learn">Learn</a> • <a href="index.html#tools">Tools</a> • <a href="faq.html">FAQ</a></p>
+  </div>
+</footer>
+
+<script>
+// Toggle FAQ Item
+function toggleFAQ(element){
+  element.classList.toggle('active');
+}
+
+// Filter FAQs by category
+function filterFAQ(category){
+  const items = document.querySelectorAll('.faq-item');
+  const buttons = document.querySelectorAll('.faq-tab-btn');
+  
+  // Update active button
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Show/hide items
+  items.forEach(item => {
+    if(category === 'all' || item.classList.contains(category)){
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
