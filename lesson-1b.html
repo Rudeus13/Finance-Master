@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Finance Master — Chapter 1B: Evolution of Money. Learn about commodity money, fiat currency, and the history of financial systems."/>
+<meta name="keywords" content="money evolution, commodity money, fiat currency, currency history, financial systems"/>
+<meta name="author" content="Finance Master"/>
+<!-- AdSense placeholder — replace with your publisher ID -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<title>Chapter 1B: Evolution of Money — Finance Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--surface:#111111;--surface2:#161616;
+  --border:#1e1e1e;--border2:#2a2a2a;
+  --white:#ffffff;--muted:#888888;--muted2:#555555;
+  --gold:#c9a227;--gold2:#e8bc3a;
+  --green:#16a34a;--green2:#0f7a38;
+  --radius:10px;--radius2:14px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+button{cursor:pointer;font-family:inherit}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:56px;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+}
+.nav-logo{display:flex;align-items:center;gap:8px}
+.nav-logo-icon{width:26px;height:26px;border-radius:6px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;color:#000}
+.nav-logo-text{font-weight:700;font-size:.95rem;letter-spacing:-.3px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:6px 12px;font-size:.84rem;color:var(--muted);border-radius:6px;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--white);background:var(--surface)}
+.nav-cta{background:var(--white)!important;color:#000!important;font-weight:600!important;padding:6px 14px!important;border-radius:7px!important}
+.nav-cta:hover{background:#e5e5e5!important}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;padding:4px}
+.hamburger span{width:20px;height:1.5px;background:var(--muted);border-radius:2px;display:block;transition:all .2s}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:var(--black);border-bottom:1px solid var(--border);padding:16px 5vw;flex-direction:column;gap:4px;z-index:99}
+.mobile-menu a{padding:10px 12px;font-size:.9rem;color:var(--muted);border-radius:6px}
+.mobile-menu a:hover{background:var(--surface);color:var(--white)}
+.mobile-menu.open{display:flex}
+
+/* ── LEARN PAGE ── */
+.learn-hero{padding:60px 5vw 40px;max-width:800px}
+.learn-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:12px}
+.learn-hero h1 span{color:var(--gold)}
+.learn-lead{font-size:1.05rem;color:var(--muted);margin-bottom:20px;line-height:1.8}
+.lesson-nav{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.lesson-nav a{font-size:.85rem;padding:8px 16px;border:1px solid var(--border);border-radius:6px;color:var(--muted);transition:all .2s}
+.lesson-nav a:hover{border-color:var(--gold);color:var(--white)}
+
+/* ── AD SLOT ── */
+.ad-slot{
+  width:100%;padding:12px;background:var(--surface);
+  border:1px dashed var(--border2);border-radius:var(--radius);
+  text-align:center;font-size:.72rem;color:var(--muted2);
+  margin:24px 0;min-height:90px;display:flex;align-items:center;justify-content:center;
+}
+
+/* ── CONTENT SECTIONS ── */
+.content-wrapper{padding:40px 5vw 60px;max-width:900px}
+.section-block{margin-bottom:48px}
+.section-block h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:12px;color:var(--white)}
+.section-block h2 span{color:var(--gold)}
+.section-block h3{font-size:1.2rem;font-weight:700;margin-top:24px;margin-bottom:8px;color:var(--white)}
+.section-block p{font-size:.95rem;line-height:1.8;color:var(--muted);margin-bottom:12px}
+.section-block ul,.section-block ol{margin-left:20px;margin-bottom:16px;color:var(--muted)}
+.section-block li{margin-bottom:8px;line-height:1.7}
+
+/* ── CALLOUT/HIGHLIGHT ── */
+.highlight-box{
+  background:var(--surface);border-left:4px solid var(--gold);
+  padding:20px;border-radius:8px;margin:20px 0;
+}
+.highlight-box h4{color:var(--gold);font-size:.9rem;font-weight:700;margin-bottom:8px}
+.highlight-box p{color:var(--muted);font-size:.9rem;line-height:1.6}
+
+/* ── KEY TAKEAWAYS ── */
+.takeaways{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius2);padding:24px;margin:40px 0;
+}
+.takeaways h3{color:var(--gold);font-size:1rem;margin-bottom:16px}
+.takeaways ul{margin:0;padding-left:20px}
+.takeaways li{margin-bottom:10px;font-size:.92rem;color:var(--muted);line-height:1.6}
+
+/* ── COMPARISON TABLE ── */
+.comp-table{
+  width:100%;border-collapse:collapse;
+  margin:24px 0;font-size:.9rem;
+}
+.comp-table th{
+  background:var(--surface);color:var(--gold);
+  padding:12px;text-align:left;border:1px solid var(--border);font-weight:700;
+}
+.comp-table td{
+  padding:12px;border:1px solid var(--border);color:var(--muted);
+}
+.comp-table tr:nth-child(even){background:rgba(22,34,60,.3)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:40px 5vw;background:var(--surface);margin-top:60px}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.footer-nav a{font-size:.85rem;color:var(--muted);padding:6px 0;transition:color .2s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;font-size:.8rem;color:var(--muted2);padding-top:24px;border-top:1px solid var(--border)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .lesson-nav{flex-direction:column}
+  .lesson-nav a{width:100%}
+  .comp-table{font-size:.8rem}
+  .comp-table th,.comp-table td{padding:8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">F</div>
+    <span class="nav-logo-text">Finance Master</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#learn">Learn</a>
+    <a href="index.html#tools">Tools</a>
+    <a href="index.html#glossary">Glossary</a>
+    <a class="nav-cta" href="index.html">← Back to Main</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="index.html#learn">Learn</a>
+  <a href="index.html#tools">Tools</a>
+  <a href="index.html#glossary">Glossary</a>
+  <a href="index.html">← Back to Main</a>
+</div>
+
+<div class="learn-hero">
+  <h1>Chapter 1<span>B</span> — Evolution of Money</h1>
+  <p class="learn-lead">Understanding how money has evolved from barter systems to digital currencies, and why each form emerged to solve real-world problems.</p>
+  <div class="lesson-nav">
+    <a href="lesson-1a.html">← Chapter 1A: Intro to Money</a>
+    <a href="index.html#learn">All Chapters →</a>
+  </div>
+</div>
+
+<div class="ad-slot">
+  [Advertisement Slot — 728×90 or similar]
+</div>
+
+<div class="content-wrapper">
+
+  <!-- Section 1: Before Money -->
+  <div class="section-block">
+    <h2>The <span>Barter Problem</span></h2>
+    <p>Before money existed, humans traded goods and services directly — a practice called <strong>barter</strong>. Sounds simple, but it had a fatal flaw: the <strong>double coincidence of wants</strong>.</p>
+    <p>Imagine you're a wheat farmer who needs shoes. You must find a shoemaker who *at that exact moment* needs wheat. If the shoemaker needs rice instead, the deal fails. No trade happens.</p>
+    
+    <div class="highlight-box">
+      <h4>The Double Coincidence Problem</h4>
+      <p>For a transaction to happen in barter, both parties must want what the other has, at the same time, in the same place. This made economic activity incredibly inefficient.</p>
+    </div>
+
+    <h3>Why Barter Failed to Scale</h3>
+    <ul>
+      <li><strong>Indivisibility:</strong> You can't pay for 2 shoes with half a cow easily</li>
+      <li><strong>Storage Issues:</strong> Perishable goods like food spoil; you can't save wealth</li>
+      <li><strong>Lack of Standard Value:</strong> Is 1 cow worth 10 chickens? 15? Negotiations were messy</li>
+      <li><strong>Transportation:</strong> Carrying livestock to trade is impractical</li>
+    </ul>
+    
+    <p>These problems forced humans to invent <em>something better</em>: commodity money.</p>
+  </div>
+
+  <!-- Section 2: Commodity Money -->
+  <div class="section-block">
+    <h2><span>Commodity Money</span> — History's First Solution</h2>
+    <p>Commodity money refers to physical items with intrinsic value used as a medium of exchange. Throughout history, societies chose different commodities:</p>
+
+    <table class="comp-table">
+      <tr>
+        <th>Commodity</th>
+        <th>Region/Era</th>
+        <th>Why It Worked</th>
+        <th>Why It Failed</th>
+      </tr>
+      <tr>
+        <td><strong>Salt</strong></td>
+        <td>Ancient Egypt, Rome</td>
+        <td>Scarce, durable, divisible, universally needed for food preservation</td>
+        <td>Bulky; easy to flood markets and cause inflation</td>
+      </tr>
+      <tr>
+        <td><strong>Cowrie Shells</strong></td>
+        <td>Africa, Asia, Pacific</td>
+        <td>Beautiful, easy to carry, hard to counterfeit</td>
+        <td>Shells became abundant when Europeans traded them in volume</td>
+      </tr>
+      <tr>
+        <td><strong>Cattle</strong></td>
+        <td>Africa, Northern Europe</td>
+        <td>Productive asset, universally valuable</td>
+        <td>Impossible to divide; unpredictable supply as animals die</td>
+      </tr>
+      <tr>
+        <td><strong>Gold & Silver</strong></td>
+        <td>Worldwide (3,000 BCE onwards)</td>
+        <td>Rare, divisible, durable, portable, beautiful, chemically stable</td>
+        <td>Difficult to mine; supply isn't flexible with economic needs</td>
+      </tr>
+    </table>
+
+    <h3>Why Gold Won</h3>
+    <p>By around 1,000 BCE, gold and silver emerged as the dominant commodities. They solved the major problems:</p>
+    <ul>
+      <li>✓ <strong>Rarity:</strong> Hard to find, maintaining scarcity</li>
+      <li>✓ <strong>Durability:</strong> Never rots, corrodes, or expires</li>
+      <li>✓ <strong>Divisibility:</strong> Can be melted and reformed into smaller units</li>
+      <li>✓ <strong>Portability:</strong> Small amount of gold holds significant value</li>
+      <li>✓ <strong>Universality:</strong> Nearly every culture values precious metals</li>
+    </ul>
+
+    <div class="highlight-box">
+      <h4>Fun Fact: The Word "Salary"</h4>
+      <p>The word "salary" comes from <em>salarium</em>, the Latin word for salt. Roman soldiers were sometimes paid in salt, which was so valuable that it was literally worth its weight as currency.</p>
+    </div>
+  </div>
+
+  <!-- Section 3: Coins & Standardization -->
+  <div class="section-block">
+    <h2>The Birth of <span>Coined Money</span> (600–500 BCE)</h2>
+    <p>Gold and silver bars worked, but merchants had a new problem: <strong>verification and standardization</strong>.</p>
+    
+    <h3>The Problem Before Coins</h3>
+    <p>Every time you traded gold, the other person had to:</p>
+    <ol>
+      <li>Verify it was actually gold (not fake/plated)</li>
+      <li>Weigh it to confirm the exact amount</li>
+      <li>Assess purity (is it pure gold or mixed with cheaper metals?)</li>
+    </ol>
+    <p>Each transaction took time and required skill. Small traders couldn't easily verify authenticity.</p>
+
+    <h3>The Coin Solution</h3>
+    <p>Around 600 BCE in Lydia (modern-day Turkey), rulers began minting standardized coins with their official stamp. This guaranteed:</p>
+    <ul>
+      <li><strong>Weight:</strong> Each coin had a certified amount of precious metal</li>
+      <li><strong>Purity:</strong> The ruler's seal promised the gold standard</li>
+      <li><strong>Acceptability:</strong> Everyone trusted the government's stamp</li>
+    </ul>
+
+    <p>The invention of coins was revolutionary. It reduced transaction friction dramatically and enabled large-scale commerce.</p>
+
+    <div class="highlight-box">
+      <h4>Ancient Coins in India</h4>
+      <p>India's earliest coins (Punch-Marked Coins, 600 BCE) were stamped with multiple punches to verify weight and purity. The Mauryan Empire under Ashoka later standardized the monetary system across his vast empire.</p>
+    </div>
+  </div>
+
+  <!-- Section 4: Paper Money & Credit -->
+  <div class="section-block">
+    <h2>The Leap to <span>Paper Money</span> (10th Century CE)</h2>
+    <p>Even coins had limitations: they're heavy and impractical for large transactions across long distances.</p>
+
+    <h3>How Paper Money Started (China, 10th Century)</h3>
+    <p>Chinese merchants in the Song Dynasty faced a problem: transporting coins across the Silk Road was dangerous and heavy. They invented a solution: <strong>promissory notes</strong>.</p>
+    <p>A merchant would deposit gold with a trusted goldsmith and receive a written note promising redemption. This note could be traded instead of physical gold.</p>
+
+    <p>By 960 CE, the Chinese government officially recognized these notes as currency. Paper money was born.</p>
+
+    <h3>The Key Innovation: Trust</h3>
+    <p>Paper money doesn't have intrinsic value like gold. Its value comes entirely from <strong>collective trust</strong> that it can be exchanged for goods.</p>
+    <p>For paper money to work, people must believe:</p>
+    <ul>
+      <li>The government won't print excessive amounts (causing inflation)</li>
+      <li>The currency won't be abandoned or replaced overnight</li>
+      <li>Other people will accept it in future transactions</li>
+    </ul>
+
+    <div class="highlight-box">
+      <h4>Why Paper Money Was Risky</h4>
+      <p>When governments abused the power to print (printing excessively to fund wars), paper money would collapse in value. This happened repeatedly—most famously in Germany in 1923 and Zimbabwe in 2008.</p>
+    </div>
+  </div>
+
+  <!-- Section 5: The Gold Standard & Fiat -->
+  <div class="section-block">
+    <h2><span>Fiat Currency</span> — Money Backed Only by Authority</h2>
+    <p>For centuries, paper money was backed by gold. You could walk into a bank and exchange your currency for physical gold—the "gold standard."</p>
+
+    <h3>The Gold Standard Era (1870s–1971)</h3>
+    <p>Most countries linked their currency to gold at a fixed rate. For example:</p>
+    <ul>
+      <li>1 pound (UK) = 7.32 grams of gold</li>
+      <li>1 dollar (USA) = 1.5 grams of gold (post-1933)</li>
+    </ul>
+
+    <p>This meant governments couldn't print unlimited money—they only had as much currency as their gold reserves allowed. It was a check on inflation.</p>
+
+    <h3>Why the Gold Standard Ended</h3>
+    <p>Gold was inflexible. During recessions, governments needed to pump money into the economy to create jobs, but the gold standard prevented this. After World War II, the system eventually cracked.</p>
+
+    <p>On August 15, 1971, US President Richard Nixon ended the gold standard. The dollar was no longer convertible to gold. The US and most countries moved to <strong>fiat currency</strong>.</p>
+
+    <h3>What Is Fiat Currency?</h3>
+    <p><strong>Fiat</strong> means "by decree." Fiat money has value because the government declares it legal tender—not because it's backed by gold or any physical commodity.</p>
+
+    <p>Today's currencies (US Dollar, Indian Rupee, Euro, etc.) are all fiat currencies.</p>
+
+    <table class="comp-table">
+      <tr>
+        <th>Characteristic</th>
+        <th>Commodity Money (Gold)</th>
+        <th>Fiat Currency</th>
+      </tr>
+      <tr>
+        <td><strong>Backed By</strong></td>
+        <td>Physical precious metal</td>
+        <td>Government authority & trust</td>
+      </tr>
+      <tr>
+        <td><strong>Can Be Printed Freely?</strong></td>
+        <td>No — limited by gold reserves</td>
+        <td>Yes — creates inflation risk</td>
+      </tr>
+      <tr>
+        <td><strong>Intrinsic Value</strong></td>
+        <td>Yes — gold is useful for jewelry, electronics</td>
+        <td>No — only valuable in exchange</td>
+      </tr>
+      <tr>
+        <td><strong>Inflation Control</strong></td>
+        <td>Natural (limited supply)</td>
+        <td>Depends on central bank policy</td>
+      </tr>
+    </table>
+
+    <div class="highlight-box">
+      <h4>Is Fiat Currency Risky?</h4>
+      <p>Fiat currency gives governments more flexibility but also more power to destroy value through excessive printing. The Indian Rupee, US Dollar, and Euro are all fiat currencies, but their stability depends on central bank discipline and public trust.</p>
+    </div>
+  </div>
+
+  <!-- Section 6: Modern Money (Digital & Crypto) -->
+  <div class="section-block">
+    <h2>The <span>Future</span> — Digital & Crypto Money</h2>
+    <p>Even fiat currency has limitations: it's still physical (or at least bank-based), involves middlemen, and can be slow to transfer internationally.</p>
+
+    <h3>Digital Money (UPI, Cards, Online Banking)</h3>
+    <p>Today, most transactions are already digital. In India, UPI (Unified Payments Interface) allows instant money transfer via smartphones. No physical cash needed.</p>
+
+    <p>Digital money is just government fiat currency in digital form—it still requires banks and central authority.</p>
+
+    <h3>Cryptocurrencies (Bitcoin, Ethereum)</h3>
+    <p>Starting in 2009, Bitcoin introduced a radical alternative: <strong>decentralized money</strong> with no central bank or government control.</p>
+    <ul>
+      <li>✓ Not issued by any government</li>
+      <li>✓ Limited supply (only 21 million Bitcoin will ever exist)</li>
+      <li>✓ Transfers don't require banks—peer-to-peer</li>
+      <li>✗ Highly volatile in value</li>
+      <li>✗ Difficult to use in everyday commerce</li>
+    </ul>
+
+    <p>Cryptocurrencies solve some problems but create others. They're still experimental.</p>
+  </div>
+
+  <!-- Key Takeaways -->
+  <div class="takeaways">
+    <h3>🎯 Key Takeaways</h3>
+    <ul>
+      <li><strong>Barter Failed</strong> because of the double coincidence of wants and lack of divisibility</li>
+      <li><strong>Commodity Money</strong> (gold, salt, shells) solved early problems but was heavy and inflexible</li>
+      <li><strong>Coins</strong> (600 BCE) standardized precious metals and reduced transaction friction</li>
+      <li><strong>Paper Money</strong> (10th century, China) enabled long-distance trade but relied on trust</li>
+      <li><strong>Gold Standard</strong> (1870–1971) limited money supply but prevented flexible economic policy</li>
+      <li><strong>Fiat Currency</strong> (post-1971) gives governments control but risks inflation if abused</li>
+      <li><strong>Digital & Crypto</strong> are the newest experiments in solving old monetary problems</li>
+      <li>Each form of money emerged to solve real-world problems of its time</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="ad-slot">
+  [Advertisement Slot — 728×90 or similar]
+</div>
+
+<footer>
+  <div class="footer-nav">
+    <a href="lesson-1a.html">← Chapter 1A: Intro to Money</a>
+    <span style="color:var(--border)">•</span>
+    <a href="index.html#learn">All Chapters</a>
+    <span style="color:var(--border)">•</span>
+    <a href="index.html#glossary">Glossary</a>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Finance Master. Chapter 1B: Evolution of Money</p>
+    <p><a href="index.html" style="color:var(--gold)">← Back to Finance Master Home</a></p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
